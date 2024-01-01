@@ -14,8 +14,14 @@ Potential Challenges:
 - Sticking to 15 mins and not letting time run over
 - Deciding what to focus on and what to code
 
+## Languages
+
+HTML
+
 ## January
 
 Key Focus - JavaScript Fundamentals
 
 Reason for focus - During the month of January I will be taking my first steps into the world of react, so it felt appropriate to go back over the fundamentals of Javascript to aid me in my learning of react.
+
+1 - Basic semantic HTML structure
