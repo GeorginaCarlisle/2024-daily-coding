@@ -1,7 +1,16 @@
 /**
- * Calls all funtions to be run on window loading
+ * Calls funtions to be run once the HTML document has been completely parsed,
+ * and all deferred scripts have downloaded and executed. 
+ * But, before images, subframes and async scripts have finished loading
  */
-window.onload = printLog("JavaScript running")
+document.addEventListener('DOMContentLoaded', function() {
+    printLog("DOM structure ready and safe to manipulate");
+});
+
+/**
+ * Calls all funtions to be run once the whole page has been fully loaded
+ */
+window.onload = printLog("Whole page now loaded");
 
 /**
  * Function renders passed argument to the JavaScript Log
