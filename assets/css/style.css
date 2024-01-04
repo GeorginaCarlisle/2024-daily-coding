@@ -1,0 +1,34 @@
+/* Main page elements */
+body {
+    margin: 0;
+    background-color:ghostwhite;
+}
+
+header {
+    background-color: lightblue;
+    padding: 1rem;
+}
+
+footer {
+    background-color: cadetblue;
+    padding: 1rem;
+}
+
+/* Containers */
+
+.page {
+    display: grid;
+    grid-template-columns: [left] 1fr [middle] 2fr [right] 1fr;
+}
+
+.log-container {
+    padding: 1rem;
+}
+
+.main-container {
+    padding: 1rem;
+}
+
+nav {
+    padding: 1rem;
+}

@@ -17,6 +17,7 @@ Potential Challenges:
 ## Languages
 
 HTML
+JavaScript
 
 ## January
 
@@ -26,3 +27,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 
 1 - Basic semantic HTML structure
 2 - JavaScript log added
+3 - Additional log added on DOM content loaded
+4 - CSS file in place and some basic layout styling added
