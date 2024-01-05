@@ -8,17 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Calls all funtions to be run once the whole page has been fully loaded
+ * Calls all funtions to be run once the when the entire page, 
+ * including all its resources (like images, stylesheets, scripts, etc.), 
+ * has finished loading.
  */
-window.onload = printLog("Whole page now loaded");
+window.onload = function() {
+    printLog("Window now loaded");
+};
 
 /**
  * Function renders passed argument to the JavaScript Log
  */
 function printLog(details) {
     let log = document.getElementById("javascript-log");
-    log.innerHTML = `
-    <div>
-        ${details}
-    </div>`;
+    let newLog = document.createElement("li");
+    newLog.textContent = details;
+    log.appendChild(newLog);
 }

@@ -29,3 +29,4 @@ Reason for focus - During the month of January I will be taking my first steps i
 2 - JavaScript log added
 3 - Additional log added on DOM content loaded
 4 - CSS file in place and some basic layout styling added
+5 - Fix printLog function to append children rather than just add a contents to the div. Correctly code window.onload to call a function.
