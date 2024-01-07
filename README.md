@@ -30,3 +30,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 3 - Additional log added on DOM content loaded
 4 - CSS file in place and some basic layout styling added
 5 - Fix printLog function to append children rather than just add a contents to the div. Correctly code window.onload to call a function.
+6 - Additional JavaScript pages added ready for later. Barebones only.
+7 - Basic unload function added.
