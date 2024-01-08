@@ -32,3 +32,4 @@ Reason for focus - During the month of January I will be taking my first steps i
 5 - Fix printLog function to append children rather than just add a contents to the div. Correctly code window.onload to call a function.
 6 - Additional JavaScript pages added ready for later. Barebones only.
 7 - Basic unload function added.
+8 - Further exploration of the beforeunload event, including how it is best to use only when there is a danger of user input being lost. Unload function removed, to be added again only for instances where it is needed.
