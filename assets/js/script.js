@@ -25,3 +25,11 @@ function printLog(details) {
     newLog.textContent = details;
     log.appendChild(newLog);
 }
+
+/**
+ * Function called when elements that have been passed this function within the html
+ * are clicked. Passes a log entry to printLog
+ */
+function clickInfo(event) {
+    printLog(`Click event - ${event}`);
+}
