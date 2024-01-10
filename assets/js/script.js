@@ -5,6 +5,7 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     printLog("DOM structure ready and safe to manipulate");
+    printLog("");
 });
 
 /**
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 window.onload = function() {
     printLog("Window now loaded");
+    printLog("");
 };
 
 /**
@@ -28,8 +30,18 @@ function printLog(details) {
 
 /**
  * Function called when elements that have been passed this function within the html
- * are clicked. Passes a log entry to printLog
+ * are clicked. Passes a log entry to printLog with some key data from the generated event
  */
-function clickInfo(event) {
-    printLog(`Click event - ${event}`);
+function mouseEvent(event) {
+    printLog("Mouse Event, details to follow:")
+    printLog(`event type = ${event.type}`);
+    printLog(`pointer type = ${event.pointerType}`);
+    printLog(`pointer Id = ${event.pointerId}`);
+    printLog(`target element type = ${event.target.tagName}`);
+    printLog(`target id = ${event.target.id}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`event timestamp = ${event.timeStamp}`);
+    printLog("");
+    console.log("Event object:", event);
 }
