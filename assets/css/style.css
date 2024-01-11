@@ -21,14 +21,42 @@ footer {
     grid-template-columns: [left] 1fr [middle] 2fr [right] 1fr;
 }
 
-.log-container {
-    padding: 1rem;
-}
-
 .main-container {
     padding: 1rem;
 }
 
 nav {
     padding: 1rem;
+}
+
+/* JavaScript Log */
+
+.log-container {
+    border: solid;
+    border-width: 0.1rem;
+    background-color: rgb(211, 233, 240);
+}
+
+.log-container > h2 {
+    color: rgb(105, 20, 184);
+    padding: 1rem;
+    margin: 0;
+    border-bottom: solid;
+    border-width: 0.1rem;
+    border-color: black;
+}
+
+.inner-log {
+    overflow: auto;
+    height: 50vh;
+    padding: 1rem;
+}
+
+.log-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.log-list > li {
+    margin-bottom: 0.5rem;
 }

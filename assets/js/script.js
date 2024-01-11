@@ -5,7 +5,7 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     printLog("DOM structure ready and safe to manipulate");
-    printLog("");
+    printLog("- - - -");
 });
 
 /**
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 window.onload = function() {
     printLog("Window now loaded");
-    printLog("");
+    printLog("- - - -");
 };
 
 /**
@@ -42,6 +42,6 @@ function mouseEvent(event) {
     printLog(`horizontal coordinate = ${event.clientX}`);
     printLog(`vertical coordinate = ${event.clientY}`);
     printLog(`event timestamp = ${event.timeStamp}`);
-    printLog("");
+    printLog("- - - -");
     console.log("Event object:", event);
 }
