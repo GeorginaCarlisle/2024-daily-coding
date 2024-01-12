@@ -35,3 +35,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 8 - Further exploration of the beforeunload event, including how it is best to use only when there is a danger of user input being lost. Unload function removed, to be added again only for instances where it is needed.
 9 - Basic click event added - called from the html.
 10 - Extra details pulled from the event object created on click.
+11 - Add CSS to tidy up how the log is displaying.
+12 - Basic mouse enter and mouse leave events added.

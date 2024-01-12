@@ -32,8 +32,8 @@ function printLog(details) {
  * Function called when elements that have been passed this function within the html
  * are clicked. Passes a log entry to printLog with some key data from the generated event
  */
-function mouseEvent(event) {
-    printLog("Mouse Event, details to follow:")
+function clickEvent(event) {
+    printLog("Click Event, details to follow:");
     printLog(`event type = ${event.type}`);
     printLog(`pointer type = ${event.pointerType}`);
     printLog(`pointer Id = ${event.pointerId}`);
@@ -44,4 +44,24 @@ function mouseEvent(event) {
     printLog(`event timestamp = ${event.timeStamp}`);
     printLog("- - - -");
     console.log("Event object:", event);
+}
+
+/**
+ * Function called when the mouse passes over the mouse-event list item
+ * text color of the list item changed to green
+ */
+function mouseEnter(event) {
+    printLog("Mouse Enter Event, details to follow:");
+    let mouseListItem = document.getElementById("mouse-event");
+    mouseListItem.style.color = "green";
+}
+
+/**
+ * Function called when the mouse passes over the mouse-event list item
+ * text color of the list item changed to orange
+ */
+function mouseLeave(event) {
+    printLog("Mouse Leave Event, details to follow:");
+    let mouseListItem = document.getElementById("mouse-event");
+    mouseListItem.style.color = "orange";
 }
