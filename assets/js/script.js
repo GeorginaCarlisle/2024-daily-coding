@@ -52,6 +52,12 @@ function clickEvent(event) {
  */
 function mouseEnter(event) {
     printLog("Mouse Enter Event, details to follow:");
+    printLog(`target id = ${event.target.id}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`event timestamp = ${event.timeStamp}`);
+    printLog("- - - -");
     let mouseListItem = document.getElementById("mouse-event");
     mouseListItem.style.color = "green";
 }
@@ -62,6 +68,22 @@ function mouseEnter(event) {
  */
 function mouseLeave(event) {
     printLog("Mouse Leave Event, details to follow:");
+    printLog(`target id = ${event.target.id}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`event timestamp = ${event.timeStamp}`);
+    printLog("- - - -");
     let mouseListItem = document.getElementById("mouse-event");
     mouseListItem.style.color = "orange";
+}
+
+/**
+ * Function called when the mouse is within the main page
+ * X and Y co-ordinates are then continually logged and updated
+ * to the onmousemove information as the mouse moves
+ */
+function mouseMoving(event) {
+    let locationBox = document.getElementById("mouse-location");
+    locationBox.innerText = `X:${event.clientX} Y:${event.clientY}`;
 }

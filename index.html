@@ -15,7 +15,7 @@
         <p>For each day in 2024 I spent 15mins re-visiting, practicing, exploring, understanding and improving code.</p>
         <p>This website showcases the results of those 15 mins, as they accumulate through the year.</p>
     </header>
-    <div class="page">
+    <div class="page" onmousemove="mouseMoving(event)">
         <section class="log-container">
             <h2>JavaScript log</h2>
             <div class="inner-log">
@@ -30,6 +30,7 @@
                 <li>load events - These happened automatically when this page loaded</li>
                 <li>click events - click <span id="click-here" onclick="clickEvent(event);">here</span> to see what happens</li>
                 <li id="mouse-event" onmouseenter="mouseEnter(event);" onmouseleave="mouseLeave(event);">mouse events - see what happens when the mouse passes over here</li>
+                <li>On mouse over can capture where the mouse is at all times while within the targeted element: <span id="mouse-location"></span></li>
             </ul>
         </section>
         <nav>
