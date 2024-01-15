@@ -64,7 +64,8 @@ function mouseEnter(event) {
 
 /**
  * Function called when the mouse passes over the mouse-event list item
- * text color of the list item changed to orange
+ * text color of the list item changed to orange and key event details
+ * passed to printLog
  */
 function mouseLeave(event) {
     printLog("Mouse Leave Event, details to follow:");
@@ -86,4 +87,16 @@ function mouseLeave(event) {
 function mouseMoving(event) {
     let locationBox = document.getElementById("mouse-location");
     locationBox.innerText = `X:${event.clientX} Y:${event.clientY}`;
+}
+
+/**
+ * Function called when a key is pressed and key event details
+ * passed to printLog
+ */
+function keyboardEvent(event) {
+    printLog("Key Pressed, details to follow:");
+    printLog(`Key = ${event.key}`);
+    printLog(`Key Code = ${event.keyCode}`);
+    printLog(`Event timestamp = ${event.timeStamp}`);
+    printLog("- - - -");
 }

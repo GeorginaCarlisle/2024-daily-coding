@@ -38,4 +38,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 11 - Add CSS to tidy up how the log is displaying.
 12 - Basic mouse enter and mouse leave events added.
 
-14 - 
+14 - Improve mouse event functions.
+15 - Keyboard event added.
