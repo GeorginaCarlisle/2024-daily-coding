@@ -40,3 +40,4 @@ Reason for focus - During the month of January I will be taking my first steps i
 
 14 - Improve mouse event functions.
 15 - Keyboard event added.
+16 - Current date and time added.

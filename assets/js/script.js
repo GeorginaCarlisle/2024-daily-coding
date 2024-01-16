@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.onload = function() {
     printLog("Window now loaded");
     printLog("- - - -");
+    timeAndDate()
 };
 
 /**
@@ -98,5 +99,18 @@ function keyboardEvent(event) {
     printLog(`Key = ${event.key}`);
     printLog(`Key Code = ${event.keyCode}`);
     printLog(`Event timestamp = ${event.timeStamp}`);
+    printLog("- - - -");
+}
+
+/** Function called when the window is loaded
+ * Gets current date and places within the page
+*/
+function timeAndDate() {
+    printLog("Time and Date function called");
+    let date = new Date();
+    printLog(`New Date is ${date}`)
+    let dateContainer = document.getElementById("date-container");
+    dateContainer.innerText = date;
+    printLog("Date added to page");
     printLog("- - - -");
 }
