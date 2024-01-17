@@ -102,13 +102,108 @@ function keyboardEvent(event) {
     printLog("- - - -");
 }
 
+/**
+ * Function to change week day number into a day of the week
+ */
+function dayName(dayNumber) {
+    let day = '';
+    switch(dayNumber) {
+        case 1:
+            day = 'Monday';
+        break;
+        case 2:
+            day = 'Tuesday';
+        break;
+        case 3:
+            day = 'Wednesday';
+        break;
+        case 4:
+            day = 'Thursday';
+        break;
+        case 5:
+            day = 'Friday';
+        break;
+        case 6:
+            day = 'Saturday';
+        break;
+        case 7:
+            day = 'Sunday';
+        break;
+        default:
+            day = 'Unknown day of the week';
+        break;
+    }
+    return day
+}
+
+/**
+ * Function to change week day number into a day of the week
+ */
+function monthName(monthNumber) {
+    let month = '';
+    switch(monthNumber) {
+        case 0:
+            month = 'January';
+        break;
+        case 1:
+            month = 'February';
+        break;
+        case 2:
+            month = 'March';
+        break;
+        case 3:
+            month = 'April';
+        break;
+        case 4:
+            month = 'May';
+        break;
+        case 5:
+            month = 'June';
+        break;
+        case 6:
+            month = 'July';
+        break;
+        case 7:
+            month = 'August';
+        break;
+        case 8:
+            month = 'September';
+        break;
+        case 9:
+            month = 'October';
+        break;
+        case 10:
+            month = 'November';
+        break;
+        case 11:
+            month = 'December';
+        break;
+        default:
+            day = 'Unknown month of the year';
+        break;
+    }
+    return month
+}
+
+
 /** Function called when the window is loaded
  * Gets current date and places within the page
 */
 function timeAndDate() {
+    // Get current date object from JavaScript
     printLog("Time and Date function called");
-    let date = new Date();
-    printLog(`New Date is ${date}`)
+    let jsdate = new Date();
+    printLog(`New Date is ${jsdate}`)
+    // Get specific bits of date object needed and convert
+    let year = jsdate.getFullYear();
+    let monthNumber = jsdate.getMonth();
+    let month = monthName(monthNumber);
+    let monthDay = jsdate.getDate();
+    let weekDay = jsdate.getDay();
+    let day = dayName(weekDay);
+    // Create Date
+    let date = `${day} the ${monthDay} of ${month} ${year}`
+    // Render date to the DOM
     let dateContainer = document.getElementById("date-container");
     dateContainer.innerText = date;
     printLog("Date added to page");
