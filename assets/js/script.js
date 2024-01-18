@@ -185,6 +185,15 @@ function monthName(monthNumber) {
     return month
 }
 
+/** Function called from timeAndDate and renders passed date to the page
+ * as well as logging to JavaScript page log
+ */
+function renderDate(date) {
+    let dateContainer = document.getElementById("date-container");
+    dateContainer.innerText = date;
+    printLog("Date added to page");
+    printLog("- - - -");
+}
 
 /** Function called when the window is loaded
  * Gets current date and places within the page
@@ -201,11 +210,6 @@ function timeAndDate() {
     let monthDay = jsdate.getDate();
     let weekDay = jsdate.getDay();
     let day = dayName(weekDay);
-    // Create Date
-    let date = `${day} the ${monthDay} of ${month} ${year}`
-    // Render date to the DOM
-    let dateContainer = document.getElementById("date-container");
-    dateContainer.innerText = date;
-    printLog("Date added to page");
-    printLog("- - - -");
+    // Create Date and passed to renderDate function
+    renderDate(`${day} the ${monthDay} of ${month} ${year}`)
 }

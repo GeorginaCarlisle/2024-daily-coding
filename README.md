@@ -41,3 +41,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 14 - Improve mouse event functions.
 15 - Keyboard event added.
 16 - Current date and time added.
+17 - Improve form of date rendered to the page.
+18 - Split rendering of date into it's own function
