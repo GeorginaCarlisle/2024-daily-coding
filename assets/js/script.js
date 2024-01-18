@@ -195,6 +195,16 @@ function renderDate(date) {
     printLog("- - - -");
 }
 
+/** Function called from timeAndDate and renders passed time to the page
+ * as well as logging to JavaScript page log
+ */
+function renderTime(time) {
+    let dateContainer = document.getElementById("time-container");
+    dateContainer.innerText = time;
+    printLog("Time added to page");
+    printLog("- - - -");
+}
+
 /** Function called when the window is loaded
  * Gets current date and places within the page
 */
@@ -203,6 +213,7 @@ function timeAndDate() {
     printLog("Time and Date function called");
     let jsdate = new Date();
     printLog(`New Date is ${jsdate}`)
+    printLog("- - - -")
     // Get specific bits of date object needed and convert
     let year = jsdate.getFullYear();
     let monthNumber = jsdate.getMonth();
@@ -210,6 +221,10 @@ function timeAndDate() {
     let monthDay = jsdate.getDate();
     let weekDay = jsdate.getDay();
     let day = dayName(weekDay);
-    // Create Date and passed to renderDate function
+    let hour = jsdate.getHours();
+    let minute = jsdate.getMinutes();
+    // Create date and pass to renderDate function
     renderDate(`${day} the ${monthDay} of ${month} ${year}`)
+    // Create time and pass to renderTime function
+    renderTime(`${hour} : ${minute}`)
 }
