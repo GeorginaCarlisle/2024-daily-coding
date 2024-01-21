@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.onload = function() {
     printLog("Window now loaded");
     printLog("- - - -");
-    timeAndDate()
+    getDateAndTime();
 };
 
 /**
@@ -126,7 +126,7 @@ function dayName(dayNumber) {
         case 6:
             day = 'Saturday';
         break;
-        case 7:
+        case 0:
             day = 'Sunday';
         break;
         default:
@@ -208,9 +208,9 @@ function renderTime(time) {
 /** Function called when the window is loaded
  * Gets current date and places within the page
 */
-function timeAndDate() {
+function getDateAndTime() {
     // Get current date object from JavaScript
-    printLog("Time and Date function called");
+    printLog("get Date function called");
     let jsdate = new Date();
     printLog(`New Date is ${jsdate}`)
     printLog("- - - -")
@@ -223,8 +223,29 @@ function timeAndDate() {
     let day = dayName(weekDay);
     let hour = jsdate.getHours();
     let minute = jsdate.getMinutes();
+    let seconds = jsdate.getSeconds();
     // Create date and pass to renderDate function
-    renderDate(`${day} the ${monthDay} of ${month} ${year}`)
+    renderDate(`${day} the ${monthDay} of ${month} ${year}`);
     // Create time and pass to renderTime function
-    renderTime(`${hour} : ${minute}`)
+    renderTime(`${hour} : ${minute} : ${seconds}`);
+    
 }
+
+/** Function called every minute
+ * Gets current time and renders within the page
+ */
+function getTime() {
+    // Get current date object from JavaScript
+    printLog("get Time function called");
+    let jsdate = new Date();
+    printLog(`New Date is ${jsdate}`)
+    printLog("- - - -")
+    // Get specific bits of date object needed
+    let hour = jsdate.getHours();
+    let minute = jsdate.getMinutes();
+    let seconds = jsdate.getSeconds();
+    // Create time and pass to renderTime function
+    renderTime(`${hour} : ${minute} : ${seconds}`);
+}
+
+let interval = setInterval(getTime, 1000);
