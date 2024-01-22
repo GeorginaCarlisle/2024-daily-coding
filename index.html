@@ -12,8 +12,11 @@
 <body onkeypress="keyboardEvent(event);">
     <header>
         <h1>Daily Coding 2024</h1>
-        <p>For each day in 2024 I spent 15mins re-visiting, practicing, exploring, understanding and improving code.</p>
-        <p>This website showcases the results of those 15 mins, as they accumulate through the year.</p>
+        <div>
+            <p id="date-container"></p>
+            <p id="time-container" class="time"></p>
+        </div>
+        
     </header>
     <div class="page" onmousemove="mouseMoving(event)">
         <section class="log-container">
@@ -25,9 +28,9 @@
         </section>
         <section class="main-container">
             <section>
-                <h2>Date and time</h2>
-                <p>JavaScripts date object can be used to get the current date and time:</p>
-                <p>Today is <span id="date-container"></span> and the time is <span id="time-container"></span></p>
+                <h2>Coding Daily</h2>
+                <p>For each day in 2024 I spent 15mins re-visiting, practicing, exploring, understanding and improving code.</p>
+                <p>This website showcases the results of those 15 mins, as they accumulate through the year.</p>
             </section>
             <section>
                 <h2>JavaScript Events</h2>

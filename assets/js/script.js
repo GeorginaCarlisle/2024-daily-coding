@@ -188,7 +188,18 @@ function monthName(monthNumber) {
 /** Function called from timeAndDate and renders passed date to the page
  * as well as logging to JavaScript page log
  */
-function renderDate(date) {
+function renderDate(day, monthDay, month, year) {
+    let dayExtra = "";
+    if (monthDay === 1 || monthDay === 21 || monthDay === 31) {
+        dayExtra = "st";
+    } else if (monthDay === 2 || monthDay === 22) {
+        dayExtra = "nd";
+    } else if (monthDay === 3 || monthDay === 23) {
+        dayExtra = "rd";
+    } else {
+        dayExtra = "th";
+    };
+    let date = `${day} the ${monthDay}${dayExtra} of ${month} ${year}`
     let dateContainer = document.getElementById("date-container");
     dateContainer.innerText = date;
     printLog("Date added to page");
@@ -225,7 +236,7 @@ function getDateAndTime() {
     let minute = jsdate.getMinutes();
     let seconds = jsdate.getSeconds();
     // Create date and pass to renderDate function
-    renderDate(`${day} the ${monthDay} of ${month} ${year}`);
+    renderDate(day, monthDay, month, year);
     // Create time and pass to renderTime function
     renderTime(`${hour} : ${minute} : ${seconds}`);
     
