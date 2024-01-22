@@ -44,5 +44,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 17 - Improve form of date rendered to the page.
 18 - Split rendering of date into it's own function AND create and render current time to the page.
 
-20 - Interval set to update time every second.
-21 - Date and time rendered to top right with improved wording.
+21 - Interval set to update time every second.
+22 - Date and time rendered to top right with improved wording.
