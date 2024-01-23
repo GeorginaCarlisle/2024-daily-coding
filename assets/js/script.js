@@ -259,4 +259,37 @@ function getTime() {
     renderTime(`${hour} : ${minute} : ${seconds}`);
 }
 
+/**
+ * Information and mouse location arguments are used to then render
+ * an information box over the JS element the mouse is over
+ */
+function hoverInformation(info, xCoordinate, yCoordinate) {
+    console.log(`info: ${info}`);
+    console.log(`x coordinate: ${xCoordinate}`);
+    console.log(`y coordinate: ${yCoordinate}`);
+}
+
+/**
+ * Called on mouse over JS elements
+ */
+function mouseOver(event) {
+    printLog("mouse over called");
+    // determine info needed based on source
+    let source = event.target.id;
+    printLog(`source is: ${source}`);
+    let info = ""
+    console.log(event);
+    if (source === "date-container") {
+        info = "On window loading the current date and time was pulled from the JSs Date() object, specific information was then extracted, manipulated and then rendered.";
+    } else if (source === "time-container") {
+        info = "setInterval() is used to call the getTime function everysecond. This function gets new Date(), extracts hour, minute and second and updates the time.";
+    }
+    // pull x and y coorinates from event object
+    let xCoordinate = event.clientX;
+    let yCoordinate = event.clientY;
+    // Call hoverInformation and pass in arguments
+    hoverInformation(info, xCoordinate, yCoordinate);
+}
+
+
 let interval = setInterval(getTime, 1000);

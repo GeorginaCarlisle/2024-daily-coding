@@ -46,3 +46,4 @@ Reason for focus - During the month of January I will be taking my first steps i
 
 21 - Interval set to update time every second.
 22 - Date and time rendered to top right with improved wording.
+23 - Mouse over function to gain location of JS element being hovered over and an explanation of JavaScript inc=volved.
