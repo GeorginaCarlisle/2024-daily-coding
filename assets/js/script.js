@@ -49,22 +49,6 @@ function clickEvent(event) {
 
 /**
  * Function called when the mouse passes over the mouse-event list item
- * text color of the list item changed to green
- */
-function mouseEnter(event) {
-    printLog("Mouse Enter Event, details to follow:");
-    printLog(`target id = ${event.target.id}`);
-    printLog(`source element = ${event.srcElement.tagName}`);
-    printLog(`horizontal coordinate = ${event.clientX}`);
-    printLog(`vertical coordinate = ${event.clientY}`);
-    printLog(`event timestamp = ${event.timeStamp}`);
-    printLog("- - - -");
-    let mouseListItem = document.getElementById("mouse-event");
-    mouseListItem.style.color = "green";
-}
-
-/**
- * Function called when the mouse passes over the mouse-event list item
  * text color of the list item changed to orange and key event details
  * passed to printLog
  */
@@ -263,20 +247,33 @@ function getTime() {
  * Information and mouse location arguments are used to then render
  * an information box over the JS element the mouse is over
  */
-function hoverInformation(info, xCoordinate, yCoordinate) {
-    console.log(`info: ${info}`);
-    console.log(`x coordinate: ${xCoordinate}`);
-    console.log(`y coordinate: ${yCoordinate}`);
+function addHoverInformation(info, source) {
+    let sourceElement = document.getElementById(source);
+    // Add css class to change postion of parent to relative
+    let parent = sourceElement.parentNode;
+    parent.setAttribute('class','info-container-parent')
+    // Create element to contain info and give css class for styling
+    let infoContainer = document.createElement('div');
+    infoContainer.setAttribute('class','info-container');;
+    // Pass info into the new element
+    infoContainer.innerHTML = info;
+    // Add new element to the DOM appending to the source element so that the new info sits below
+    sourceElement.appendChild(infoContainer);
+    printLog(`Hover Information about ${source} added`);
 }
 
 /**
  * Called on mouse over JS elements
  */
-function mouseOver(event) {
-    printLog("mouse over called");
+function mouseEnter(event) {
+    printLog("Mouse Enter Event, details to follow:");
+    printLog(`target id = ${event.target.id}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`event timestamp = ${event.timeStamp}`);
     // determine info needed based on source
     let source = event.target.id;
-    printLog(`source is: ${source}`);
     let info = ""
     console.log(event);
     if (source === "date-container") {
@@ -284,12 +281,9 @@ function mouseOver(event) {
     } else if (source === "time-container") {
         info = "setInterval() is used to call the getTime function everysecond. This function gets new Date(), extracts hour, minute and second and updates the time.";
     }
-    // pull x and y coorinates from event object
-    let xCoordinate = event.clientX;
-    let yCoordinate = event.clientY;
-    // Call hoverInformation and pass in arguments
-    hoverInformation(info, xCoordinate, yCoordinate);
+    // Call addHoverInformation and pass in arguments
+    addHoverInformation(info, source);
+    printLog("- - - -")
 }
-
 
 let interval = setInterval(getTime, 1000);

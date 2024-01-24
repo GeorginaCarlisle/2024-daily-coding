@@ -66,3 +66,19 @@ nav {
 .log-list > li {
     margin-bottom: 0.5rem;
 }
+
+/* Hover info container*/
+
+.info-container {
+    position: absolute;
+    background-color: ghostwhite;
+    border: 3px;
+    border: solid;
+    border-color: cadetblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.info-container-parent {
+    position: relative;
+}

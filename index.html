@@ -13,8 +13,8 @@
     <header>
         <h1>Daily Coding 2024</h1>
         <div>
-            <p id="date-container" onmouseover="mouseOver(event)"></p>
-            <p id="time-container" onmouseover="mouseOver(event)" class="time"></p>
+            <p id="date-container" onmouseenter="mouseEnter(event)"></p>
+            <p id="time-container" onmouseenter="mouseEnter(event)" class="time"></p>
         </div>
         
     </header>
@@ -38,7 +38,7 @@
                 <ul>
                     <li>load events - These happened automatically when this page loaded</li>
                     <li>click events - click <span id="click-here" onclick="clickEvent(event);">here</span> to see what happens</li>
-                    <li id="mouse-event" onmouseenter="mouseEnter(event);" onmouseleave="mouseLeave(event);">mouse events - see what happens when the mouse passes over here</li>
+                    <li>mouse events - such as mouseenter and mouseleave</li>
                     <li>On mouse over can capture where the mouse is at all times while within the targeted element: <span id="mouse-location"></span></li>
                 </ul>
             </section>
