@@ -48,23 +48,6 @@ function clickEvent(event) {
 }
 
 /**
- * Function called when the mouse passes over the mouse-event list item
- * text color of the list item changed to orange and key event details
- * passed to printLog
- */
-function mouseLeave(event) {
-    printLog("Mouse Leave Event, details to follow:");
-    printLog(`target id = ${event.target.id}`);
-    printLog(`source element = ${event.srcElement.tagName}`);
-    printLog(`horizontal coordinate = ${event.clientX}`);
-    printLog(`vertical coordinate = ${event.clientY}`);
-    printLog(`event timestamp = ${event.timeStamp}`);
-    printLog("- - - -");
-    let mouseListItem = document.getElementById("mouse-event");
-    mouseListItem.style.color = "orange";
-}
-
-/**
  * Function called when the mouse is within the main page
  * X and Y co-ordinates are then continually logged and updated
  * to the onmousemove information as the mouse moves
@@ -231,10 +214,7 @@ function getDateAndTime() {
  */
 function getTime() {
     // Get current date object from JavaScript
-    printLog("get Time function called");
     let jsdate = new Date();
-    printLog(`New Date is ${jsdate}`)
-    printLog("- - - -")
     // Get specific bits of date object needed
     let hour = jsdate.getHours();
     let minute = jsdate.getMinutes();
@@ -251,10 +231,11 @@ function addHoverInformation(info, source) {
     let sourceElement = document.getElementById(source);
     // Add css class to change postion of parent to relative
     let parent = sourceElement.parentNode;
-    parent.setAttribute('class','info-container-parent')
+    parent.style.position = "relative"
     // Create element to contain info and give css class for styling
     let infoContainer = document.createElement('div');
-    infoContainer.setAttribute('class','info-container');;
+    infoContainer.setAttribute('class','info-container');
+    infoContainer.setAttribute('id', 'new-info-container');
     // Pass info into the new element
     infoContainer.innerHTML = info;
     // Add new element to the DOM appending to the source element so that the new info sits below
@@ -263,7 +244,9 @@ function addHoverInformation(info, source) {
 }
 
 /**
- * Called on mouse over JS elements
+ * Called on mouse entering JS elements
+ * Renders key info in the log and calls the addHoverInformation function 
+ * passing it the source of the mouse enter and associated information
  */
 function mouseEnter(event) {
     printLog("Mouse Enter Event, details to follow:");
@@ -284,6 +267,29 @@ function mouseEnter(event) {
     // Call addHoverInformation and pass in arguments
     addHoverInformation(info, source);
     printLog("- - - -")
+}
+
+/**
+ * Called on mouse leaving JS elemennts
+ */
+function mouseLeave(event) {
+    printLog("Mouse Leave Event, details to follow:");
+    printLog(`target id = ${event.target.id}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`event timestamp = ${event.timeStamp}`);
+    // determine source
+    let source = event.target.id;
+    let sourceElement = document.getElementById(source);
+    // find parent and remove class added on mouse enter
+    let parent = sourceElement.parentNode;
+    parent.style.removeProperty("position");
+    // find info container and remove
+    infoContainer = document.getElementById('new-info-container');
+    infoContainer.remove();
+    printLog("Hover information removed");
+    printLog("- - - -");
 }
 
 let interval = setInterval(getTime, 1000);
