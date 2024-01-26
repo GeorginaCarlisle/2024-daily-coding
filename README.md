@@ -49,3 +49,4 @@ Reason for focus - During the month of January I will be taking my first steps i
 23 - Mouse over function to gain location of JS element being hovered over and an explanation of JavaScript involved.
 24 - Functionality to display info about the time and date on mouseenter.
 25 - Functionality to remove info on mouseleave.
+26 - Fix bug causing info about time to be overwritten by the time being updated.

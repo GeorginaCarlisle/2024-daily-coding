@@ -178,7 +178,7 @@ function renderDate(day, monthDay, month, year) {
  */
 function renderTime(time) {
     let dateContainer = document.getElementById("time-container");
-    dateContainer.innerText = time;
+    dateContainer.textContent = time;
     printLog("Time added to page");
     printLog("- - - -");
 }
@@ -237,7 +237,7 @@ function addHoverInformation(info, source) {
     infoContainer.setAttribute('class','info-container');
     infoContainer.setAttribute('id', 'new-info-container');
     // Pass info into the new element
-    infoContainer.innerHTML = info;
+    infoContainer.innerText = info;
     // Add new element to the DOM appending to the source element so that the new info sits below
     sourceElement.appendChild(infoContainer);
     printLog(`Hover Information about ${source} added`);
@@ -259,9 +259,9 @@ function mouseEnter(event) {
     let source = event.target.id;
     let info = ""
     console.log(event);
-    if (source === "date-container") {
+    if (source === "date-div") {
         info = "On window loading the current date and time was pulled from the JSs Date() object, specific information was then extracted, manipulated and then rendered.";
-    } else if (source === "time-container") {
+    } else if (source === "time-div") {
         info = "setInterval() is used to call the getTime function everysecond. This function gets new Date(), extracts hour, minute and second and updates the time.";
     }
     // Call addHoverInformation and pass in arguments
