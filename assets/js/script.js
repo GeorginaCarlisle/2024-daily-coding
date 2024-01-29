@@ -34,6 +34,21 @@ function printLog(details) {
  * are clicked. Passes a log entry to printLog with some key data from the generated event
  */
 function clickEvent(event) {
+    clickEventDetails(event)
+    elementId = event.target.id
+    element = document.getElementById(elementId)
+    if (element.innerText === "click here") {
+        element.innerText = `Element with ID of "${elementId}" clicked`;
+    } else {
+        element.innerText = "click here";
+    }
+}
+
+/**
+ * Called by clickEvent and passed ethe event.
+ * Prints info about the event to the console
+ */
+function clickEventDetails(event) {
     printLog("Click Event, details to follow:");
     printLog(`event type = ${event.type}`);
     printLog(`pointer type = ${event.pointerType}`);
