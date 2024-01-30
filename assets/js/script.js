@@ -17,6 +17,7 @@ window.onload = function() {
     printLog("Window now loaded");
     printLog("- - - -");
     getDateAndTime();
+    calculateYearProgress();
 };
 
 /**
@@ -306,5 +307,33 @@ function mouseLeave(event) {
     printLog("Hover information removed");
     printLog("- - - -");
 }
+
+/**
+ * Render percentage
+ */
+function renderPercentage(elementId, percentage) {
+    printLog("Render percentage called");
+    let progressBar = document.getElementById(elementId);
+    printLog(progressBar);
+    progressBar.style.width = `${percentage}%`;
+}
+
+/**
+ * 
+ */
+function calculateYearProgress(){
+    printLog("Calculate Years Progress called");
+    let elementId = "years-progress";
+    let currentDate = new Date();
+    let currentYear = currentDate.getFullYear();
+    let firstDayOfYear = new Date(currentYear, 0, 1);
+    let timeDifference = currentDate - firstDayOfYear
+    let daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    printLog(`${daysPassed} days passed this year`);
+    let percentage = Math.floor((daysPassed / 365) * 100);
+    printLog(`Percentage of year passed is ${percentage}`);
+    renderPercentage(elementId, percentage);
+}
+
 
 let interval = setInterval(getTime, 1000);
