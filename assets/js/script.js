@@ -1,3 +1,9 @@
+const missedDays = {
+    January: 5,
+    February: 0,
+    March: 0,
+}
+
 /**
  * Calls funtions to be run once the HTML document has been completely parsed,
  * and all deferred scripts have downloaded and executed. 
@@ -18,6 +24,7 @@ window.onload = function() {
     printLog("- - - -");
     getDateAndTime();
     calculateYearProgress();
+    calculateMonthProgress();
 };
 
 /**
@@ -83,6 +90,7 @@ function keyboardEvent(event) {
     printLog(`Key Code = ${event.keyCode}`);
     printLog(`Event timestamp = ${event.timeStamp}`);
     printLog("- - - -");
+    console.log(event);
 }
 
 /**
@@ -309,7 +317,7 @@ function mouseLeave(event) {
 }
 
 /**
- * Render percentage
+ * Renders the percentage of the year passed as a bar guage in the header
  */
 function renderPercentage(elementId, percentage) {
     printLog("Render percentage called");
@@ -319,7 +327,8 @@ function renderPercentage(elementId, percentage) {
 }
 
 /**
- * 
+ * Calculates the percentage of the year passed passing this to
+ * render percentage. Also renders some key details to the JS log.
  */
 function calculateYearProgress(){
     printLog("Calculate Years Progress called");
@@ -333,6 +342,52 @@ function calculateYearProgress(){
     let percentage = Math.floor((daysPassed / 365) * 100);
     printLog(`Percentage of year passed is ${percentage}`);
     renderPercentage(elementId, percentage);
+}
+
+/**
+ * Renders the passed months consistency percentage as a bar guage next to the info
+ * for that month.
+ */
+function renderMonthProgress(month, consistency){
+    console.log(`commitment-${month}`);
+    let commitmentBar = document.getElementById(`commitment-${month.toLowerCase()}`);
+    commitmentBar.style.width = `${consistency}%`;
+}
+
+/**
+ * Returns the number of days for the month passed in.
+ */
+function calculateMonthTotal(monthNumber){
+    if (monthNumber === 0 || 2 || 4 || 6 || 7 || 9 || 11) {
+        return 31;
+    } else if (monthNumber === 3 || 5 || 8 || 10) {
+        return 30;
+    } else if (monthNumber === 1) {
+        return 29;
+    } else {
+        console.log(`Error retriving number of days in month ${monthNumber}`);
+    }
+}
+
+/**
+ * Finds the months already happened/in progress this year.
+ * For each month the consistency is calculate using total days in the month
+ * and the number of days missed (from list: missedDays)
+ */
+function calculateMonthProgress(){
+    let jsdate = new Date();
+    let monthNumber = jsdate.getMonth();
+
+    for (let i = 0; i <= monthNumber; i++) {
+        let month = monthName(i);
+        let daysMissed = missedDays[month];
+        let monthTotal = calculateMonthTotal(i);
+        console.log(monthTotal)
+        let daysComplete = monthTotal - daysMissed;
+        let consistency = Math.floor((daysComplete / monthTotal) * 100);
+        console.log(consistency);
+        renderMonthProgress(month, consistency);
+    }
 }
 
 

@@ -84,3 +84,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 29 - Tidy main page information and add additional functionality to clickEvent.
 
 30 - Bar added to show percentage of the year passed.
+
+31 - Bar added to show consistency for months passed.
