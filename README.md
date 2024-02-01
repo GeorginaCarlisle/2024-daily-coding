@@ -85,4 +85,10 @@ Reason for focus - During the month of January I will be taking my first steps i
 
 30 - Bar added to show percentage of the year passed.
 
-31 - Bar added to show consistency for months passed.
+31 - Bar added that shows consistency for January and months to come.
+
+## February
+
+Key focus: JavaScript tidy up
+
+1 - Edit main page contents and add February section.

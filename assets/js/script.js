@@ -352,6 +352,8 @@ function renderMonthProgress(month, consistency){
     console.log(`commitment-${month}`);
     let commitmentBar = document.getElementById(`commitment-${month.toLowerCase()}`);
     commitmentBar.style.width = `${consistency}%`;
+    let commitmentNumber = document.getElementById(`${month.toLowerCase()}-commitment`);
+    commitmentNumber.innerText = `${consistency}%`;
 }
 
 /**

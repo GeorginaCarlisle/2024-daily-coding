@@ -56,6 +56,9 @@ nav {
     overflow: auto;
     height: 50vh;
     padding: 1rem;
+    border-bottom: solid;
+    border-width: 0.1rem;
+    border-color: black;
 }
 
 .log-list {
@@ -65,6 +68,10 @@ nav {
 
 .log-list > li {
     margin-bottom: 0.5rem;
+}
+
+.centre {
+    text-align: center;
 }
 
 /* Hover info container*/
@@ -97,4 +104,10 @@ nav {
     height: 100%;
     width: 0%;
     background-color: black;
+}
+
+/* Percentage info */
+
+.commitment-details {
+    font-size: 1.2rem;
 }
