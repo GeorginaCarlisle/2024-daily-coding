@@ -10,7 +10,7 @@ const missedDays = {
  * But, before images, subframes and async scripts have finished loading
  */
 document.addEventListener('DOMContentLoaded', function() {
-    printLog("DOM structure ready and safe to manipulate");
+    printLog("DOM Content loaded");
     printLog("- - - -");
 });
 
@@ -20,21 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
  * has finished loading.
  */
 window.onload = function() {
-    printLog("Window now loaded");
+    printLog("Window loaded");
     printLog("- - - -");
-    getDateAndTime();
+    getDate();
+    getTime();
     calculateYearProgress();
     calculateMonthProgress();
 };
 
 /**
- * Function renders passed argument to the JavaScript Log
+ * Function creates a new list Item containg the passed details
+ * Adding this <li> before the first child contained within the <ul> 
+ * with id of "javascript-log"
  */
 function printLog(details) {
     let log = document.getElementById("javascript-log");
+    let logFirstChild = log.firstChild;
     let newLog = document.createElement("li");
     newLog.textContent = details;
-    log.appendChild(newLog);
+    log.insertBefore(newLog, logFirstChild);
 }
 
 /**
@@ -45,10 +49,10 @@ function clickEvent(event) {
     clickEventDetails(event)
     elementId = event.target.id
     element = document.getElementById(elementId)
-    if (element.innerText === "click here") {
-        element.innerText = `Element with ID of "${elementId}" clicked`;
+    if (element.innerText === "click events") {
+        element.innerText = "click event clicked";
     } else {
-        element.innerText = "click here";
+        element.innerText = "click events";
     }
 }
 
@@ -57,17 +61,16 @@ function clickEvent(event) {
  * Prints info about the event to the console
  */
 function clickEventDetails(event) {
-    printLog("Click Event, details to follow:");
-    printLog(`event type = ${event.type}`);
-    printLog(`pointer type = ${event.pointerType}`);
-    printLog(`pointer Id = ${event.pointerId}`);
-    printLog(`target element type = ${event.target.tagName}`);
-    printLog(`target id = ${event.target.id}`);
-    printLog(`horizontal coordinate = ${event.clientX}`);
-    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog("- - - -");    
     printLog(`event timestamp = ${event.timeStamp}`);
-    printLog("- - - -");
-    console.log("Event object:", event);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`target id = ${event.target.id}`);
+    printLog(`target element type = ${event.target.tagName}`);
+    printLog(`pointer Id = ${event.pointerId}`);
+    printLog(`pointer type = ${event.pointerType}`);
+    printLog(`event type = ${event.type}`);
+    printLog("Click Event, details to follow:");
 }
 
 /**
@@ -77,20 +80,34 @@ function clickEventDetails(event) {
  */
 function mouseMoving(event) {
     let locationBox = document.getElementById("mouse-location");
-    locationBox.innerText = `X:${event.clientX} Y:${event.clientY}`;
+    locationBox.innerText = `X:${event.clientX}  Y:${event.clientY}`;
 }
 
 /**
  * Function called when a key is pressed and key event details
- * passed to printLog
+ * passed to printLog. Key pressed also passed to update key log function
  */
 function keyboardEvent(event) {
-    printLog("Key Pressed, details to follow:");
-    printLog(`Key = ${event.key}`);
-    printLog(`Key Code = ${event.keyCode}`);
-    printLog(`Event timestamp = ${event.timeStamp}`);
     printLog("- - - -");
-    console.log(event);
+    printLog(`Event timestamp = ${event.timeStamp}`);
+    printLog(`Key Code = ${event.keyCode}`);
+    printLog(`Key = ${event.key}`);
+    printLog("Key Pressed, details to follow:");
+    updateKeyLog(event.key);
+}
+
+/**
+ * Function adds key pressed into the key log
+ */
+function updateKeyLog(key){
+    let keyLog = document.getElementById("keys-pressed");
+    let currentLog = keyLog.textContent;
+    if (currentLog === "No keys pressed yet"){
+        newLog = key;
+    } else {
+        newLog = currentLog + key;
+    }
+    keyLog.innerText = newLog;
 }
 
 /**
@@ -193,8 +210,6 @@ function renderDate(day, monthDay, month, year) {
     let date = `${day} the ${monthDay}<sup>${dayExtra}</sup> of ${month} ${year}`
     let dateContainer = document.getElementById("date-container");
     dateContainer.innerHTML = date;
-    printLog("Date added to page");
-    printLog("- - - -");
 }
 
 /** Function called from timeAndDate and renders passed time to the page
@@ -203,19 +218,14 @@ function renderDate(day, monthDay, month, year) {
 function renderTime(time) {
     let dateContainer = document.getElementById("time-container");
     dateContainer.textContent = time;
-    printLog("Time added to page");
-    printLog("- - - -");
 }
 
 /** Function called when the window is loaded
  * Gets current date and places within the page
 */
-function getDateAndTime() {
+function getDate() {
     // Get current date object from JavaScript
-    printLog("get Date function called");
     let jsdate = new Date();
-    printLog(`New Date is ${jsdate}`)
-    printLog("- - - -")
     // Get specific bits of date object needed and convert
     let year = jsdate.getFullYear();
     let monthNumber = jsdate.getMonth();
@@ -223,21 +233,8 @@ function getDateAndTime() {
     let monthDay = jsdate.getDate();
     let weekDay = jsdate.getDay();
     let day = dayName(weekDay);
-    let hour = jsdate.getHours();
-    let minute = jsdate.getMinutes();
-    let seconds = jsdate.getSeconds();
     // Create date and pass to renderDate function
     renderDate(day, monthDay, month, year);
-    // Create time and pass to renderTime function
-    if (seconds < 10){
-        renderTime(`${hour} : ${minute} : 0${seconds}`);
-    } else if (minute < 10){
-        renderTime(`${hour} : 0${minute} : ${seconds}`);
-    } else if (hour < 20){
-        renderTime(`0${hour} : ${minute} : ${seconds}`);
-    } else {
-        renderTime(`${hour} : ${minute} : ${seconds}`);
-    }   
 }
 
 /** Function called every minute
@@ -279,7 +276,6 @@ function addHoverInformation(info, source) {
     infoContainer.innerText = info;
     // Add new element to the DOM appending to the source element so that the new info sits below
     sourceElement.appendChild(infoContainer);
-    printLog(`Hover Information about ${source} added`);
 }
 
 /**
@@ -288,16 +284,16 @@ function addHoverInformation(info, source) {
  * passing it the source of the mouse enter and associated information
  */
 function mouseEnter(event) {
-    printLog("Mouse Enter Event, details to follow:");
-    printLog(`target id = ${event.target.id}`);
-    printLog(`source element = ${event.srcElement.tagName}`);
-    printLog(`horizontal coordinate = ${event.clientX}`);
-    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog("- - - -");
     printLog(`event timestamp = ${event.timeStamp}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`target id = ${event.target.id}`);
+    printLog("Mouse Enter Event, details to follow:");
     // determine info needed based on source
     let source = event.target.id;
     let info = ""
-    console.log(event);
     if (source === "date-div") {
         info = "On window loading the current date and time was pulled from the JSs Date() object, specific information was then extracted, manipulated and then rendered.";
     } else if (source === "time-div") {
@@ -305,19 +301,19 @@ function mouseEnter(event) {
     }
     // Call addHoverInformation and pass in arguments
     addHoverInformation(info, source);
-    printLog("- - - -")
 }
 
 /**
  * Called on mouse leaving JS elemennts
  */
 function mouseLeave(event) {
-    printLog("Mouse Leave Event, details to follow:");
-    printLog(`target id = ${event.target.id}`);
-    printLog(`source element = ${event.srcElement.tagName}`);
-    printLog(`horizontal coordinate = ${event.clientX}`);
-    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog("- - - -");
     printLog(`event timestamp = ${event.timeStamp}`);
+    printLog(`vertical coordinate = ${event.clientY}`);
+    printLog(`horizontal coordinate = ${event.clientX}`);
+    printLog(`source element = ${event.srcElement.tagName}`);
+    printLog(`target id = ${event.target.id}`);
+    printLog("Mouse Leave Event, details to follow:");
     // determine source
     let source = event.target.id;
     let sourceElement = document.getElementById(source);
@@ -327,17 +323,13 @@ function mouseLeave(event) {
     // find info container and remove
     infoContainer = document.getElementById('new-info-container');
     infoContainer.remove();
-    printLog("Hover information removed");
-    printLog("- - - -");
 }
 
 /**
  * Renders the percentage of the year passed as a bar guage in the header
  */
 function renderPercentage(elementId, percentage) {
-    printLog("Render percentage called");
     let progressBar = document.getElementById(elementId);
-    printLog(progressBar);
     progressBar.style.width = `${percentage}%`;
 }
 
@@ -346,16 +338,13 @@ function renderPercentage(elementId, percentage) {
  * render percentage. Also renders some key details to the JS log.
  */
 function calculateYearProgress(){
-    printLog("Calculate Years Progress called");
     let elementId = "years-progress";
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear();
     let firstDayOfYear = new Date(currentYear, 0, 1);
     let timeDifference = currentDate - firstDayOfYear
     let daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    printLog(`${daysPassed} days passed this year`);
     let percentage = Math.floor((daysPassed / 365) * 100);
-    printLog(`Percentage of year passed is ${percentage}`);
     renderPercentage(elementId, percentage);
 }
 

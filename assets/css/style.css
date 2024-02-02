@@ -111,3 +111,15 @@ nav {
 .commitment-details {
     font-size: 1.2rem;
 }
+
+/* Other */
+
+.hiddenFunction {
+    color: orange;
+    font-weight: bold;
+}
+
+.hiddenFunction:hover {
+    color: orangered;
+    cursor: help;
+}

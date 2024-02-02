@@ -29,13 +29,15 @@
     </header>
     <div class="page">
         <section class="log-container">
-            <h2>JavaScript log</h2>
+            <h2>JavaScript Events Log</h2>
             <div class="inner-log">
                 <!-- List below to be filled with JavaScript logs added as functions executed -->
                 <ul id="javascript-log" class="log-list"></ul>
             </div>
             <h2>Mouse location</h2>
-            <p id="mouse-location" class="centre"></p>
+            <p id="mouse-location" class="centre">Mouse has not yet entered the screen</p>
+            <h2>Keys pressed</h2>
+            <p id="keys-pressed" class="centre">No keys pressed yet</p>
         </section>
         <section class="main-container">
             <section>
@@ -49,7 +51,7 @@
                     <div id="commitment-january" class="progress-bar"></div>
                 </div>
                 <p>My focus for January was JavaScript fundamentals and interaction with the DOM through events. I also took a detour into the JavaScript Date object.</p>
-                <p>An in-page JavaScript Log displays key events as they happen. These include load events, mouse events, <span id="click-here" onclick="clickEvent(event)">click events</span> and keyboard events. What can you make happen?</p>
+                <p>An in-page JavaScript Log displays key events as they happen. These include load events, mouse events, <span id="click-here" onclick="clickEvent(event)" class="hiddenFunction">click events</span> and keyboard events. What can you make happen?</p>
                 <p>The current date and time are displayed in the header with the time updating every second. Mouse over to find out more.</p>
             </section>
             <section>
