@@ -190,9 +190,9 @@ function renderDate(day, monthDay, month, year) {
     } else {
         dayExtra = "th";
     };
-    let date = `${day} the ${monthDay}${dayExtra} of ${month} ${year}`
+    let date = `${day} the ${monthDay}<sup>${dayExtra}</sup> of ${month} ${year}`
     let dateContainer = document.getElementById("date-container");
-    dateContainer.innerText = date;
+    dateContainer.innerHTML = date;
     printLog("Date added to page");
     printLog("- - - -");
 }
@@ -229,8 +229,15 @@ function getDateAndTime() {
     // Create date and pass to renderDate function
     renderDate(day, monthDay, month, year);
     // Create time and pass to renderTime function
-    renderTime(`${hour} : ${minute} : ${seconds}`);
-    
+    if (seconds < 10){
+        renderTime(`${hour} : ${minute} : 0${seconds}`);
+    } else if (minute < 10){
+        renderTime(`${hour} : 0${minute} : ${seconds}`);
+    } else if (hour < 20){
+        renderTime(`0${hour} : ${minute} : ${seconds}`);
+    } else {
+        renderTime(`${hour} : ${minute} : ${seconds}`);
+    }   
 }
 
 /** Function called every minute
@@ -244,7 +251,15 @@ function getTime() {
     let minute = jsdate.getMinutes();
     let seconds = jsdate.getSeconds();
     // Create time and pass to renderTime function
-    renderTime(`${hour} : ${minute} : ${seconds}`);
+    if (seconds < 10){
+        renderTime(`${hour} : ${minute} : 0${seconds}`);
+    } else if (minute < 10){
+        renderTime(`${hour} : 0${minute} : ${seconds}`);
+    } else if (hour < 20){
+        renderTime(`0${hour} : ${minute} : ${seconds}`);
+    } else {
+        renderTime(`${hour} : ${minute} : ${seconds}`);
+    }   
 }
 
 /**

@@ -92,3 +92,5 @@ Reason for focus - During the month of January I will be taking my first steps i
 Key focus: JavaScript tidy up
 
 1 - Edit main page contents and add February section.
+
+2 - Adjust rendering of date to make nd etc. superscript and time to add additional 0 in front of numbers less than 10.
