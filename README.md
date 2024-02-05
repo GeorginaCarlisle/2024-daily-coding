@@ -94,3 +94,9 @@ Key focus: JavaScript tidy up
 1 - Edit main page contents and add February section.
 
 2 - Adjust rendering of date to make nd etc. superscript and time to add additional 0 in front of numbers less than 10. Convert Log to display event info only and reverse order.
+
+3 - Missed.
+
+4 - Missed.
+
+5 - Refactor JavaScript code: ternary statements, use of list instead of switch statements and amalgamating short steps with dot notation.

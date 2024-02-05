@@ -1,6 +1,6 @@
 const missedDays = {
     January: 5,
-    February: 0,
+    February: 2,
     March: 0,
 }
 
@@ -46,14 +46,9 @@ function printLog(details) {
  * are clicked. Passes a log entry to printLog with some key data from the generated event
  */
 function clickEvent(event) {
-    clickEventDetails(event)
-    elementId = event.target.id
-    element = document.getElementById(elementId)
-    if (element.innerText === "click events") {
-        element.innerText = "click event clicked";
-    } else {
-        element.innerText = "click events";
-    }
+    clickEventDetails(event);
+    const element = event.target;
+    element.innerText = (element.innerText === "click events") ? "click event clicked" :"click events";
 }
 
 /**
@@ -102,95 +97,23 @@ function keyboardEvent(event) {
 function updateKeyLog(key){
     let keyLog = document.getElementById("keys-pressed");
     let currentLog = keyLog.textContent;
-    if (currentLog === "No keys pressed yet"){
-        newLog = key;
-    } else {
-        newLog = currentLog + key;
-    }
-    keyLog.innerText = newLog;
+    currentLog === "No keys pressed yet" ? keyLog.innerText = key : keyLog.innerText = currentLog + key;
 }
 
 /**
  * Function to change week day number into a day of the week
  */
 function dayName(dayNumber) {
-    let day = '';
-    switch(dayNumber) {
-        case 1:
-            day = 'Monday';
-        break;
-        case 2:
-            day = 'Tuesday';
-        break;
-        case 3:
-            day = 'Wednesday';
-        break;
-        case 4:
-            day = 'Thursday';
-        break;
-        case 5:
-            day = 'Friday';
-        break;
-        case 6:
-            day = 'Saturday';
-        break;
-        case 0:
-            day = 'Sunday';
-        break;
-        default:
-            day = 'Unknown day of the week';
-        break;
-    }
-    return day
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[dayNumber] || 'Unknown day of the week';
 }
 
 /**
  * Function to change week day number into a day of the week
  */
 function monthName(monthNumber) {
-    let month = '';
-    switch(monthNumber) {
-        case 0:
-            month = 'January';
-        break;
-        case 1:
-            month = 'February';
-        break;
-        case 2:
-            month = 'March';
-        break;
-        case 3:
-            month = 'April';
-        break;
-        case 4:
-            month = 'May';
-        break;
-        case 5:
-            month = 'June';
-        break;
-        case 6:
-            month = 'July';
-        break;
-        case 7:
-            month = 'August';
-        break;
-        case 8:
-            month = 'September';
-        break;
-        case 9:
-            month = 'October';
-        break;
-        case 10:
-            month = 'November';
-        break;
-        case 11:
-            month = 'December';
-        break;
-        default:
-            day = 'Unknown month of the year';
-        break;
-    }
-    return month
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return months[monthNumber] || 'Unknown month of the year';
 }
 
 /** Function called from timeAndDate and renders passed date to the page
@@ -208,16 +131,14 @@ function renderDate(day, monthDay, month, year) {
         dayExtra = "th";
     };
     let date = `${day} the ${monthDay}<sup>${dayExtra}</sup> of ${month} ${year}`
-    let dateContainer = document.getElementById("date-container");
-    dateContainer.innerHTML = date;
+    document.getElementById("date-container").innerHTML = date;
 }
 
 /** Function called from timeAndDate and renders passed time to the page
  * as well as logging to JavaScript page log
  */
 function renderTime(time) {
-    let dateContainer = document.getElementById("time-container");
-    dateContainer.textContent = time;
+    document.getElementById("time-container").textContent = time;
 }
 
 /** Function called when the window is loaded
@@ -353,7 +274,6 @@ function calculateYearProgress(){
  * for that month.
  */
 function renderMonthProgress(month, consistency){
-    console.log(`commitment-${month}`);
     let commitmentBar = document.getElementById(`commitment-${month.toLowerCase()}`);
     commitmentBar.style.width = `${consistency}%`;
     let commitmentNumber = document.getElementById(`${month.toLowerCase()}-commitment`);
@@ -388,10 +308,8 @@ function calculateMonthProgress(){
         let month = monthName(i);
         let daysMissed = missedDays[month];
         let monthTotal = calculateMonthTotal(i);
-        console.log(monthTotal)
         let daysComplete = monthTotal - daysMissed;
         let consistency = Math.floor((daysComplete / monthTotal) * 100);
-        console.log(consistency);
         renderMonthProgress(month, consistency);
     }
 }
