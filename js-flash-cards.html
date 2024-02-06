@@ -12,15 +12,32 @@
 <body>
     <header>
         <h1>Daily Coding 2024</h1>
+        <div>
+            <div id="date-div">
+                <p id="date-container"></p>
+            </div>
+            <div id="time-div">
+                <p id="time-container" class="time"></p>
+            </div> 
+        </div>
     </header>
     <div class="page">
         <section class="log-container">
-            <h2>JavaScript log</h2>
-            <!-- Container below to be filled with JavaScript logs added as functions executed -->
-            <ul id="javascript-log"></ul>
+            <h2>Flash Card Tally</h2>
+            <p><span id="cards-completed">0</span> completed out of <span id="cards-total"></span></p>
+            <p><span id="cards-right"></spanid> marked as correct</p>
+            <p><span id="game-percentage"></span> correct so far</p>
         </section>
         <section class="main-container">
-            Flash Card game to go here
+            <h2>JavaScript Flash Cards</h2>
+            <button id="card-control">Flip the card</button>
+            <div class="outcome-buttons">
+                <button id="correct-btn">Correct</button>
+                <button id="unknown-btn">Unknown</button>
+                <button id="incorrect-btn">Incorrect</button>
+            </div>
+            <div id="flash-card">This is a test question?</div>
+            <div id="answer-card">This is a test answer.</div>
         </section>
         <nav>
             <h2>Explore what's here</h2>
@@ -63,7 +80,7 @@
     </footer>
 
     <!-- Link to JavaScript file -->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/flash-card.js"></script>
 
 </body>
 </html>

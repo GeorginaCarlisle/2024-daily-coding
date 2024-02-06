@@ -1,17 +1,25 @@
 # 2024 Daily Coding Challenge
 
 By building a habit of coding daily during 2024, I hope to:
+
 - Embed the knowledge and skills I have already learnt
+
 - Gain a deeper understanding of the Fundamentals
+
 - Learn and explore new concepts and further expand my knowledge and skills
 
 I will aim, every day to:
+
 - Spend 15 mins coding
+
 - At the end of the 15 minutes commit the days work to github
 
 Potential Challenges:
+
 - Actually taking out 15 mins every day to sit and do something unlinked to whatever else is happening that day.
+
 - Sticking to 15 mins and not letting time run over
+
 - Deciding what to focus on and what to code
 
 ## Languages
@@ -100,3 +108,5 @@ Key focus: JavaScript tidy up
 4 - Missed.
 
 5 - Refactor JavaScript code: ternary statements, use of list instead of switch statements and amalgamating short steps with dot notation.
+
+6 - Prepare JavaScript Flash cards html and add new JS file for this page, copying date and time functionality from main script.
