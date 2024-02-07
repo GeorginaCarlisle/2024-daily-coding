@@ -110,3 +110,5 @@ Key focus: JavaScript tidy up
 5 - Refactor JavaScript code: ternary statements, use of list instead of switch statements and amalgamating short steps with dot notation.
 
 6 - Prepare JavaScript Flash cards html and add new JS file for this page, copying date and time functionality from main script.
+
+7 - newCard function to pick a random card from the list of flashcards and display the front of the card to the page.

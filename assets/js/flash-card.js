@@ -1,3 +1,21 @@
+const flashCards = [
+    {
+        front: "Front of first test card",
+        back: "Back of first test card"
+    },
+    {
+        front: "Front of second test card",
+        back: "Back of second test card"
+    },
+    {
+        front: "Front of third test card",
+        back: "Back of third test card"
+    },
+];
+
+let cardsSeen = [];
+let cardsCorrect = 0;
+
 /**
  * Calls all funtions to be run once the when the entire page, 
  * including all its resources (like images, stylesheets, scripts, etc.), 
@@ -6,6 +24,7 @@
 window.onload = function() {
     getDate();
     getTime();
+    newCard();
 };
 
 /**
@@ -89,3 +108,16 @@ function getTime() {
 }
 
 let interval = setInterval(getTime, 1000);
+
+/** 
+ * Function called on load and on click of the flip card button
+ * Picks a random card from the list of flashcards
+ * and displays to the page
+*/
+function newCard() {
+    let totalCards = flashCards.length;
+    let cardNumber = Math.floor(Math.random() * totalCards);
+    console.log(cardNumber);
+    const frontCard = document.getElementById("front-card");
+    frontCard.innerText = flashCards[cardNumber].front;
+}
