@@ -111,13 +111,36 @@ let interval = setInterval(getTime, 1000);
 
 /** 
  * Function called on load and on click of the flip card button
- * Picks a random card from the list of flashcards
- * and displays to the page
+ * Checks if all cards have been seen and handles, if not calls chooseCard
+ * and then displays returned info to the page
 */
 function newCard() {
-    let totalCards = flashCards.length;
-    let cardNumber = Math.floor(Math.random() * totalCards);
-    console.log(cardNumber);
-    const frontCard = document.getElementById("front-card");
-    frontCard.innerText = flashCards[cardNumber].front;
+    const totalCards = flashCards.length;
+    let cardInfo = ""
+    if (cardsSeen.length === totalCards){
+        console.log("cardsSeen includes all cards");
+        cardInfo = "All cards have now been viewed";
+    } else {
+        cardInfo = chooseCard();
+    }
+    console.log(cardsSeen);
+    document.getElementById("front-card").innerText = cardInfo;
+}
+
+/**
+ * @returns card info (front) from a randomly chosen flashcard that hasn't previously been chosen
+ * to newCard also pushing the card number to the cardsSeen array
+ */
+function chooseCard(){
+    console.log("Choose card called");
+
+    while (true){
+        let cardNumber = Math.floor(Math.random() * flashCards.length);
+        console.log(cardNumber);
+        if (!cardsSeen.includes(cardNumber)){
+            console.log("card number not seen");
+            cardsSeen.push(cardNumber);
+            return cardInfo = flashCards[cardNumber].front;
+        }
+    }
 }

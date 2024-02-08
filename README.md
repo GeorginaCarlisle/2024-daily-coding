@@ -112,3 +112,5 @@ Key focus: JavaScript tidy up
 6 - Prepare JavaScript Flash cards html and add new JS file for this page, copying date and time functionality from main script.
 
 7 - newCard function to pick a random card from the list of flashcards and display the front of the card to the page.
+
+8 - Edit newCard function to choose only unseen cards and to signal when all cards have been seen.
