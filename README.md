@@ -114,3 +114,5 @@ Key focus: JavaScript tidy up
 7 - newCard function to pick a random card from the list of flashcards and display the front of the card to the page.
 
 8 - Edit newCard function to choose only unseen cards and to signal when all cards have been seen.
+
+9 - showAnswer function with button calling either newCard or showAnswer depending on what is needed. Button text changes appropriately to provide next option.
