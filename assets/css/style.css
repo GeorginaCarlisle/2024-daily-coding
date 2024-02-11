@@ -123,3 +123,37 @@ nav {
     color: orangered;
     cursor: help;
 }
+
+/* Flash Cards */
+
+.card-container {
+    width: full;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 12rem;
+    height: 16rem;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#outcome-buttons {
+    display: none;
+}
+
+#unknown-btn {
+    margin-right: 5px;
+    margin-left: 5px;
+}

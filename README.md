@@ -116,3 +116,7 @@ Key focus: JavaScript tidy up
 8 - Edit newCard function to choose only unseen cards and to signal when all cards have been seen.
 
 9 - showAnswer function with button calling either newCard or showAnswer depending on what is needed. Button text changes appropriately to provide next option.
+
+10 - Missed.
+
+11 - Edit functions to include switch to outcome buttons and reset once all cards seen.

@@ -30,14 +30,27 @@
         </section>
         <section class="main-container">
             <h2>JavaScript Flash Cards</h2>
-            <button id="card-control" onclick="cardChange()">New card</button>
-            <div class="outcome-buttons">
-                <button id="correct-btn">Correct</button>
-                <button id="unknown-btn">Unknown</button>
-                <button id="incorrect-btn">Incorrect</button>
+            <div class="card-container">
+                <div class="card">
+                    <div id="front-card">
+                        This is a test question?
+                    </div>
+                </div>
+                <div class="card">
+                    <div id="back-card">
+                        ??
+                    </div>
+                </div>
             </div>
-            <div id="front-card">This is a test question?</div>
-            <div id="back-card">This is a test answer.</div>
+            <div class="button-container">
+                <button id="show-answer" onclick="callAnswer()">Show Answer</button>
+                <div id="outcome-buttons">
+                    <button id="correct-btn" onclick="callCorrect()">Correct</button>
+                    <button id="unknown-btn" onclick="callUnknown()">Unknown</button>
+                    <button id="incorrect-btn" onclick="callIncorrect()">Incorrect</button>
+                </div>
+            </div>
+
         </section>
         <nav>
             <h2>Explore what's here</h2>

@@ -113,10 +113,31 @@ let interval = setInterval(getTime, 1000);
  * Function called on clicking the card control button
  * Determines whether a new card or show answer is needed and calls respectively 
  */
-function cardChange(event) {
-    document.getElementById("card-control").innerText === "New card" ? newCard() : showAnswer();
+function callAnswer() {
+    if (document.getElementById("show-answer").innerText === "Reset cards"){
+        console.log("Reset called");
+        cardsSeen = [];
+        console.log(cardsSeen);
+        document.getElementById("show-answer").innerText = "Show Answer";
+        newCard();
+    } else {
+        document.getElementById("show-answer").style.display = "none";
+        document.getElementById("outcome-buttons").style.display = "flex";
+        showAnswer();
+    }
 }
 
+function callCorrect() {
+    newCard();
+}
+
+function callUnknown() {
+    newCard();
+}
+
+function callIncorrect() {
+    newCard();
+}
 
 /** 
  * Function called on load and via cardChange
@@ -124,20 +145,22 @@ function cardChange(event) {
  * and then displays returned info to the page
 */
 function newCard() {
+    document.getElementById("show-answer").style.display = "block";
+    document.getElementById("outcome-buttons").style.display = "none";
     const totalCards = flashCards.length;
     let cardInfo = ""
     if (cardsSeen.length === totalCards){
         console.log("cardsSeen includes all cards");
         cardInfo = "All cards have now been viewed";
+        document.getElementById("front-card").innerText = "All cards now viewed";
+        document.getElementById("back-card").innerText = "All cards now viewed";
+        document.getElementById("show-answer").innerText = "Reset cards";
     } else {
-        cardInfo = chooseCard();
+        document.getElementById("front-card").innerText = chooseCard();
+        document.getElementById("back-card").innerText = "??";
+        console.log(cardsSeen);
     }
-    console.log(cardsSeen);
-    document.getElementById("front-card").innerText = cardInfo;
-    document.getElementById("back-card").innerText = "??";
-    document.getElementById("card-control").innerText = "Flip card";
 }
-
 
 /**
  * @returns card info (front) from a randomly chosen flashcard that hasn't previously been chosen
@@ -162,5 +185,4 @@ function showAnswer(){
     let cardNumber = cardsSeen[cardsSeen.length - 1];
     let cardInfo = flashCards[cardNumber].back;
     document.getElementById("back-card").innerText = cardInfo;
-    document.getElementById("card-control").innerText = "New card";
 }
