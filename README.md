@@ -120,3 +120,5 @@ Key focus: JavaScript tidy up
 10 - Missed.
 
 11 - Edit functions to include switch to outcome buttons and reset once all cards seen.
+
+12 - Add scoreboard that updates and re-sets.

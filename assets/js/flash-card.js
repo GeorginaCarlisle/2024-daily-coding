@@ -15,6 +15,8 @@ const flashCards = [
 
 let cardsSeen = [];
 let cardsCorrect = 0;
+let currentUnknown = 0;
+let currentIncorrect = 0;
 
 /**
  * Calls all funtions to be run once the when the entire page, 
@@ -25,6 +27,7 @@ window.onload = function() {
     getDate();
     getTime();
     newCard();
+    document.getElementById("cards-total").innerText = flashCards.length;
 };
 
 /**
@@ -117,8 +120,16 @@ function callAnswer() {
     if (document.getElementById("show-answer").innerText === "Reset cards"){
         console.log("Reset called");
         cardsSeen = [];
+        document.getElementById('cards-completed').innerText = cardsSeen.length;
+        cardsCorrect = 0;
+        document.getElementById("cards-right").innerText = cardsCorrect;
+        currentUnknown = 0;
+        document.getElementById("cards-unknown").innerText = currentUnknown;
+        currentIncorrect = 0;
+        document.getElementById("cards-incorrect").innerText = currentIncorrect;
         console.log(cardsSeen);
         document.getElementById("show-answer").innerText = "Show Answer";
+        document.getElementById('game-percentage').innerText = "0%";
         newCard();
     } else {
         document.getElementById("show-answer").style.display = "none";
@@ -128,15 +139,34 @@ function callAnswer() {
 }
 
 function callCorrect() {
+    document.getElementById('cards-completed').innerText = cardsSeen.length;
+    cardsCorrect++;
+    document.getElementById("cards-right").innerText = cardsCorrect;
+    updatePercentage();
     newCard();
 }
 
 function callUnknown() {
+    document.getElementById('cards-completed').innerText = cardsSeen.length;
+    currentUnknown++;
+    document.getElementById("cards-unknown").innerText = currentUnknown;
+    updatePercentage();
     newCard();
 }
 
 function callIncorrect() {
+    document.getElementById('cards-completed').innerText = cardsSeen.length;
+    currentIncorrect++;
+    document.getElementById("cards-incorrect").innerText = currentIncorrect;
+    updatePercentage();
     newCard();
+}
+
+function updatePercentage() {
+    console.log(cardsSeen.length);
+    console.log(cardsCorrect)
+    let percentage = (cardsCorrect / cardsSeen.length) * 100;
+    document.getElementById('game-percentage').innerText = `${percentage}%`
 }
 
 /** 
