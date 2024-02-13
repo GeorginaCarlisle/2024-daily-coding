@@ -100,14 +100,16 @@ function getTime() {
     let seconds = jsdate.getSeconds();
     // Create time and pass to renderTime function
     if (seconds < 10){
-        renderTime(`${hour} : ${minute} : 0${seconds}`);
-    } else if (minute < 10){
-        renderTime(`${hour} : 0${minute} : ${seconds}`);
-    } else if (hour < 20){
-        renderTime(`0${hour} : ${minute} : ${seconds}`);
-    } else {
-        renderTime(`${hour} : ${minute} : ${seconds}`);
-    }   
+        seconds = `0${seconds}`;
+    }
+    if (minute < 10){
+        minute = `0${minute}`;
+    }
+    if (hour < 10){
+        hour = `0${hour}`;
+    }
+    
+    renderTime(`${hour} : ${minute} : ${seconds}`);
 }
 
 let interval = setInterval(getTime, 1000);
