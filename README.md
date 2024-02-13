@@ -122,3 +122,5 @@ Key focus: JavaScript tidy up
 11 - Edit functions to include switch to outcome buttons and reset once all cards seen.
 
 12 - Add scoreboard that updates and re-sets.
+
+13 - Fix addition of extra 0s in time. Add moon phases widget.

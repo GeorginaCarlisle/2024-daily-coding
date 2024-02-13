@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript World</title>
+    <title>Daily Coding 2024</title>
 
     <!-- Link to css styling sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
+<body onkeypress="keyboardEvent(event);" onmousemove="mouseMoving(event)">
     <header>
-        <h1>Daily Coding 2024</h1>
+        <div>
+            <h1>Daily Coding 2024</h1>
+            <div class="bar">
+                <div id="years-progress" class="progress-bar"></div>
+            </div>
+        </div>
+        <div>
+            <div id="date-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                <p id="date-container"></p>
+            </div>
+            <div id="time-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                <p id="time-container" class="time"></p>
+            </div> 
+        </div>
     </header>
+
     <div class="page">
         <section class="log-container">
-            <h2>JavaScript log</h2>
-            <!-- Container below to be filled with JavaScript logs added as functions executed -->
-            <ul id="javascript-log"></ul>
+            <h2>JavaScript Events Log</h2>
+            <div class="inner-log">
+                <!-- List below to be filled with JavaScript logs added as functions executed -->
+                <ul id="javascript-log" class="log-list"></ul>
+            </div>
         </section>
         <section class="main-container">
-            All sorts to go here to showcase how JavaScript can be used
-        </section>
+            <div id="moon-phase-container" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                <script type="text/javascript" src="http://moonphases.co.uk/js/widget.js" id="moonphase_widget" widget="" lat="" lng="" date="" tz=""></script>
+            </div>
+        </section>           
         <nav>
             <h2>Explore what's here</h2>
             <section>

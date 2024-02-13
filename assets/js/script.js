@@ -220,6 +220,8 @@ function mouseEnter(event) {
         info = "On window loading the current date and time was pulled from the JSs Date() object, specific information was then extracted, manipulated and then rendered.";
     } else if (source === "time-div") {
         info = "setInterval() is used to call the getTime function everysecond. This function gets new Date(), extracts hour, minute and second and updates the time.";
+    } else if (source === "moon-phase-container") {
+        info = "Script contained here links to http://moonphases.co.uk/js/widget.js which passes JS code, css code and images to create this image";
     }
     // Call addHoverInformation and pass in arguments
     addHoverInformation(info, source);
