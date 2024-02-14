@@ -125,4 +125,4 @@ Key focus: JavaScript tidy up
 
 13 - Fix addition of extra 0s in time. Add moon phases widget.
 
-14 - Refactor scoring code.
+14 - Refactor scoring code. Add destructuring question.

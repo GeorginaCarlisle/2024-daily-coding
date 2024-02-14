@@ -1,7 +1,7 @@
 const flashCards = [
     {
-        front: "Front of first test card",
-        back: "Back of first test card"
+        front: "What is destructuring and how would I use it?",
+        back: "Destructuring is a way of taking the items in an array or object and placing in individual variables.\n\n const { keyname, secondKeyname, thirdKeyname } = object; (where the new variable names corrospond to the key names, you can add as many or little of keys needed).\n\n const [first, , , fourth] = array; (where the array items will be passed to new variables in order, commas can be used to pass items and you only need to move as far through the array as needed.)"
     },
     {
         front: "Front of second test card",
