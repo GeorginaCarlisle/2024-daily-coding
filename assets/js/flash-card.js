@@ -14,9 +14,12 @@ const flashCards = [
 ];
 
 let cardsSeen = [];
-let cardsCorrect = 0;
-let currentUnknown = 0;
-let currentIncorrect = 0;
+let scoreInfo = {
+    cardsCorrect: 0,
+    cardsUnknown: 0,
+    cardsIncorrect: 0,
+    percentage: 0
+}
 
 /**
  * Calls all funtions to be run once the when the entire page, 
@@ -115,23 +118,18 @@ function getTime() {
 let interval = setInterval(getTime, 1000);
 
 /**
- * Function called on clicking the card control button
- * Determines whether a new card or show answer is needed and calls respectively 
+ * Function called on clicking the show answer button, which doubles up as a reset button once all cards seen.
+ * Confirms whether an answer needs showing OR the cards need resetting and handles
  */
 function callAnswer() {
     if (document.getElementById("show-answer").innerText === "Reset cards"){
-        console.log("Reset called");
         cardsSeen = [];
-        document.getElementById('cards-completed').innerText = cardsSeen.length;
-        cardsCorrect = 0;
-        document.getElementById("cards-right").innerText = cardsCorrect;
-        currentUnknown = 0;
-        document.getElementById("cards-unknown").innerText = currentUnknown;
-        currentIncorrect = 0;
-        document.getElementById("cards-incorrect").innerText = currentIncorrect;
-        console.log(cardsSeen);
+        scoreInfo.cardsCorrect = 0;
+        scoreInfo.cardsUnknown = 0;
+        scoreInfo.cardsIncorrect = 0;
+        scoreInfo.percentage = 0;
+        renderNewScore()
         document.getElementById("show-answer").innerText = "Show Answer";
-        document.getElementById('game-percentage').innerText = "0%";
         newCard();
     } else {
         document.getElementById("show-answer").style.display = "none";
@@ -140,41 +138,42 @@ function callAnswer() {
     }
 }
 
-function callCorrect() {
+/**
+ * Function called on clicking one of the outcome buttons. 
+ * Scores updated depending on button clicked and renderNewScore called.
+ * New card then called.
+ */
+function updateScore(event) {
+    if (event.target.id === "correct-btn") {
+        scoreInfo.cardsCorrect++
+    } else if (event.target.id === "unknown-btn") {
+        scoreInfo.cardsUnknown++
+    } else if (event.target.id === "incorrect-btn") {
+        scoreInfo.cardsIncorrect++
+    };
+    scoreInfo.percentage = (scoreInfo.cardsCorrect / cardsSeen.length) * 100;
+    renderNewScore();
+    newCard();
+}
+
+/**
+ * Function called following initial button click and running of updateScore.
+ * Score information rendered to the page.
+ */
+function renderNewScore() {
     document.getElementById('cards-completed').innerText = cardsSeen.length;
-    cardsCorrect++;
+    let { cardsCorrect, cardsUnknown, cardsIncorrect, percentage } = scoreInfo;
     document.getElementById("cards-right").innerText = cardsCorrect;
-    updatePercentage();
-    newCard();
-}
-
-function callUnknown() {
-    document.getElementById('cards-completed').innerText = cardsSeen.length;
-    currentUnknown++;
-    document.getElementById("cards-unknown").innerText = currentUnknown;
-    updatePercentage();
-    newCard();
-}
-
-function callIncorrect() {
-    document.getElementById('cards-completed').innerText = cardsSeen.length;
-    currentIncorrect++;
-    document.getElementById("cards-incorrect").innerText = currentIncorrect;
-    updatePercentage();
-    newCard();
-}
-
-function updatePercentage() {
-    console.log(cardsSeen.length);
-    console.log(cardsCorrect)
-    let percentage = (cardsCorrect / cardsSeen.length) * 100;
+    document.getElementById("cards-unknown").innerText = cardsUnknown;
+    document.getElementById("cards-incorrect").innerText = cardsIncorrect;
     document.getElementById('game-percentage').innerText = `${percentage}%`
 }
 
 /** 
- * Function called on load and via cardChange
+ * Function called on load, following click of an outcome button and resetting cards
  * Checks if all cards have been seen and handles, if not calls chooseCard
- * and then displays returned info to the page
+ * and then displays returned info to the page. Otherwise alerts user that all cards
+ * have been viewed.
 */
 function newCard() {
     document.getElementById("show-answer").style.display = "block";
@@ -212,6 +211,10 @@ function chooseCard(){
     }
 }
 
+/**
+ * Function called after showanswer clicked and callAnswer confirms a card
+ * reset is not needed. Renders front of card info for the last chosen cardNumber.
+ */
 function showAnswer(){
     console.log("Show Answer");
     let cardNumber = cardsSeen[cardsSeen.length - 1];

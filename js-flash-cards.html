@@ -49,9 +49,9 @@
             <div class="button-container">
                 <button id="show-answer" onclick="callAnswer()">Show Answer</button>
                 <div id="outcome-buttons">
-                    <button id="correct-btn" onclick="callCorrect()">Correct</button>
-                    <button id="unknown-btn" onclick="callUnknown()">Unknown</button>
-                    <button id="incorrect-btn" onclick="callIncorrect()">Incorrect</button>
+                    <button id="correct-btn" onclick="updateScore(event)">Correct</button>
+                    <button id="unknown-btn" onclick="updateScore(event)">Unknown</button>
+                    <button id="incorrect-btn" onclick="updateScore(event)">Incorrect</button>
                 </div>
             </div>
 

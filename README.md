@@ -124,3 +124,5 @@ Key focus: JavaScript tidy up
 12 - Add scoreboard that updates and re-sets.
 
 13 - Fix addition of extra 0s in time. Add moon phases widget.
+
+14 - Refactor scoring code.
