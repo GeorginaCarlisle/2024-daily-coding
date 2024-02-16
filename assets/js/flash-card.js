@@ -4,12 +4,24 @@ const flashCards = [
         back: "Destructuring is a way of taking the items in an array or object and placing in individual variables.\n\n const { keyname, secondKeyname, thirdKeyname } = object; (where the new variable names corrospond to the key names, you can add as many or little of keys needed).\n\n const [first, , , fourth] = array; (where the array items will be passed to new variables in order, commas can be used to pass items and you only need to move as far through the array as needed.)"
     },
     {
-        front: "Front of second test card",
-        back: "Back of second test card"
+        front: "What is the spread operator and why is it needed?",
+        back: "The spread operator is used to spread the data from an existing array or object into a new array or object.\n\n By doing so the new array, while containing exactly the same data, will be independent of the original.\n\n attempting to simply pass one array into another in order to copy can have unexpected consequences.\n\n Example:\narray2 = [...array1];"
     },
     {
-        front: "Front of third test card",
-        back: "Back of third test card"
+        front: "How can the spread operator be used in combination with adding to, combining or updating an array or object?",
+        back: "Combining:\narray3 = [...array1, ...array2];\n\nAdding to:\nobject1 = { ...object1, 'newKey': 'newValue' }\nhere a new variable could be used to hold the adjusted data.\n\nUpdating:\nlet object = { 'first': 'eat', 'next': 'wash' };\nobject = { ...object, first: 'wash', next: 'eat' }; "
+    },
+    {
+        front: "What is a try - catch block and how can it be used?",
+        back: "Answer needed!"
+    },
+    {
+        front: "Explain Synchronis and Asychronis in regard to JavaScript",
+        back: "Answer needed!"
+    },
+    {
+        front: "What is optional chaining?",
+        back: "Answer needed!"
     },
 ];
 
@@ -183,12 +195,10 @@ function newCard() {
     if (cardsSeen.length === totalCards){
         console.log("cardsSeen includes all cards");
         cardInfo = "All cards have now been viewed";
-        document.getElementById("front-card").innerText = "All cards now viewed";
-        document.getElementById("back-card").innerText = "All cards now viewed";
+        document.getElementById("card-info").innerText = "All cards now viewed";
         document.getElementById("show-answer").innerText = "Reset cards";
     } else {
-        document.getElementById("front-card").innerText = chooseCard();
-        document.getElementById("back-card").innerText = "??";
+        document.getElementById("card-info").innerText = chooseCard();
         console.log(cardsSeen);
     }
 }
@@ -219,5 +229,5 @@ function showAnswer(){
     console.log("Show Answer");
     let cardNumber = cardsSeen[cardsSeen.length - 1];
     let cardInfo = flashCards[cardNumber].back;
-    document.getElementById("back-card").innerText = cardInfo;
+    document.getElementById("card-info").innerText = cardInfo;
 }

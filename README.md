@@ -126,3 +126,7 @@ Key focus: JavaScript tidy up
 13 - Fix addition of extra 0s in time. Add moon phases widget.
 
 14 - Refactor scoring code. Add destructuring question.
+
+15 - Missed.
+
+16 - Added questions. Changed to show only one side of the card at a time.
