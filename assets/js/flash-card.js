@@ -23,6 +23,18 @@ const flashCards = [
         front: "What is optional chaining?",
         back: "Answer needed!"
     },
+    {
+        front: "Arrow functions",
+        back: "Answer needed!"
+    },
+    {
+        front: "Inline If with Logical && Operator",
+        back: "Answer needed!"
+    },
+    {
+        front: "Destructuring rules",
+        back: "Answer needed!"
+    }
 ];
 
 let cardsSeen = [];
