@@ -11,21 +11,25 @@
 </head>
 <body onkeypress="keyboardEvent(event);" onmousemove="mouseMoving(event)">
     <header>
-        <div>
+        <div class="title">
             <h1>Daily Coding 2024</h1>
             <div class="bar">
                 <div id="years-progress" class="progress-bar"></div>
             </div>
         </div>
-        <div class="date-container">
-            <div id="date-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
-                <p id="date-container" class="text-centre"></p>
+        <div class="date-and-mobile">
+            <div class="date-time-container">
+                <div id="date-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                    <p id="date-container" class="text-centre close-p"></p>
+                </div>
+                <div id="time-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                    <p id="time-container" class="text-centre close-p"></p>
+                </div> 
             </div>
-            <div id="time-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
-                <p id="time-container" class="text-centre"></p>
-            </div> 
+            <div class="mobile-toggle" onclick="expandMobile()">
+                <i class="fa-solid fa-bars hamburger"></i>
+            </div>
         </div>
-        
     </header>
     <div class="page">
         <section class="log-container">
@@ -61,7 +65,10 @@
                 </div>
             </section>
         </section>
-        <nav>
+        <nav id="nav">
+            <div class="toggle-off" onclick="collapseMobile()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
             <h2>Explore what's here</h2>
             <section>
                 <ul>
@@ -103,6 +110,9 @@
 
     <!-- Link to JavaScript file -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Link to Font Awesome -->
+    <script src="https://kit.fontawesome.com/ab3127d928.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

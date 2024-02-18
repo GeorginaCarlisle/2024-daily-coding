@@ -34,6 +34,10 @@ const flashCards = [
     {
         front: "Destructuring rules",
         back: "Answer needed!"
+    },
+    {
+        front: "How can destructuring be used to rename",
+        back: "Answer neeeded!"
     }
 ];
 

@@ -319,3 +319,13 @@ function calculateMonthProgress(){
 
 
 let interval = setInterval(getTime, 1000);
+
+function expandMobile(){
+    nav = document.getElementById('nav');
+    nav.style.display = "block";
+}
+
+function collapseMobile(){
+    nav = document.getElementById('nav');
+    nav.style.display = "none";
+}
