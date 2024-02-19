@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Coding 2024</title>
+    <title>JavaScript World</title>
 
     <!-- Link to css styling sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -11,22 +11,23 @@
 </head>
 <body onkeypress="keyboardEvent(event);" onmousemove="mouseMoving(event)">
     <header>
-        <div>
+        <div class="title">
             <h1>Daily Coding 2024</h1>
-            <div class="bar">
-                <div id="years-progress" class="progress-bar"></div>
-            </div>
         </div>
-        <div>
-            <div id="date-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
-                <p id="date-container"></p>
+        <div class="date-and-mobile">
+            <div class="date-time-container">
+                <div id="date-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                    <p id="date-container" class="text-centre close-p"></p>
+                </div>
+                <div id="time-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                    <p id="time-container" class="text-centre close-p"></p>
+                </div> 
             </div>
-            <div id="time-div" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
-                <p id="time-container" class="time"></p>
-            </div> 
+            <div class="mobile-toggle" onclick="expandMobile()">
+                <i class="fa-solid fa-bars hamburger"></i>
+            </div>
         </div>
     </header>
-
     <div class="page">
         <section class="log-container">
             <h2>JavaScript Events Log</h2>
@@ -34,13 +35,38 @@
                 <!-- List below to be filled with JavaScript logs added as functions executed -->
                 <ul id="javascript-log" class="log-list"></ul>
             </div>
+            <h2>Mouse location</h2>
+            <p id="mouse-location" class="centre">Mouse has not yet entered the screen</p>
+            <h2>Keys pressed</h2>
+            <p id="keys-pressed" class="centre">No keys pressed yet</p>
         </section>
         <section class="main-container">
-            <div id="moon-phase-container" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
-                <script type="text/javascript" src="http://moonphases.co.uk/js/widget.js" id="moonphase_widget" widget="" lat="" lng="" date="" tz=""></script>
+            <section>
+                <h2>Events</h2>
+                <p>JavaScript event listeners listen out for changes occuring within the page triggering functionality when these events occur.</p>
+                <p>Functionality could include http requests or alterations to the DOM.</p>
+                <p>There are many different types of event that JavaScript can listen out for, with a number of these utilised in this page.</p>
+                <p>The in-page JavaScript Log displays information about these as they happen.
+                <p>These include load events, mouse events, <span id="click-here" onclick="clickEvent(event)" class="hiddenFunction">click events</span> and keyboard events. What can you make happen?</p>
+            </section>
+            <section>
+                <h2>In-built objects</h2>
+                <p>JavaScript comes with a number of inbuilt objects, such as the DateTime object.</p>
+                <p>The current date and time are displayed in the header with the time updating every second. Mouse over to find out more.</p>
+            </section>
+            <section>
+                <h2>Outside connection</h2>
+                <p>JavaScript can be used to connect to other servers</p>
+                <button>See moon info</button>
+                <div id="moon-phase-container" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
+                    <script type="text/javascript" src="http://moonphases.co.uk/js/widget.js" id="moonphase_widget" widget="" lat="" lng="" date="" tz=""></script>
+                </div>
+            </section>
+        </section>
+        <nav id="nav">
+            <div class="toggle-off" onclick="collapseMobile()">
+                <i class="fa-solid fa-xmark"></i>
             </div>
-        </section>           
-        <nav>
             <h2>Explore what's here</h2>
             <section>
                 <ul>
@@ -80,8 +106,12 @@
         <p>Created by Georgina Carlisle 2024</p>
     </footer>
 
-    <!-- Link to JavaScript file -->
+    <!-- Link to JavaScript files -->
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/javascript-world.js"></script>
+
+    <!-- Link to Font Awesome -->
+    <script src="https://kit.fontawesome.com/ab3127d928.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

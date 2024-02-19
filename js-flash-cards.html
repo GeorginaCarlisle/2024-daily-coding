@@ -11,14 +11,21 @@
 </head>
 <body>
     <header>
-        <h1>Daily Coding 2024</h1>
-        <div class="date-and-time-container">
-            <div id="date-div">
-                <p id="date-container" class="text-centre"></p>
+        <div class="title">
+            <h1>Daily Coding 2024</h1>
+        </div>
+        <div class="date-and-mobile">
+            <div class="date-time-container">
+                <div id="date-div">
+                    <p id="date-container" class="text-centre close-p"></p>
+                </div>
+                <div id="time-div">
+                    <p id="time-container" class="text-centre close-p"></p>
+                </div> 
             </div>
-            <div id="time-div">
-                <p id="time-container" class="text-centre"></p>
-            </div> 
+            <div class="mobile-toggle" onclick="expandMobile()">
+                <i class="fa-solid fa-bars hamburger"></i>
+            </div>
         </div>
     </header>
     <div class="page">
@@ -51,7 +58,10 @@
             </div>
 
         </section>
-        <nav>
+        <nav id="nav">
+            <div class="toggle-off" onclick="collapseMobile()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
             <h2>Explore what's here</h2>
             <section>
                 <ul>
@@ -92,7 +102,9 @@
     </footer>
 
     <!-- Link to JavaScript file -->
-    <script src="assets/js/flash-card.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/flash-card-script.js"></script>
+
 
 </body>
 </html>

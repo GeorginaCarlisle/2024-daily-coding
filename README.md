@@ -134,3 +134,5 @@ Key focus: JavaScript tidy up
 17 - Add some responsive styling for header.
 
 18 - Add toggled Mobile navigation.
+
+19 - Re-organise JavaScript files and html pages.
