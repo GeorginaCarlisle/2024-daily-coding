@@ -43,6 +43,10 @@ const flashCards = [
         front: "reduce()",
         back: "Answer needed!"
     },
+    {
+        front: "filter()",
+        back: "Answer needed!"
+    }
 ];
 
 let cardsSeen = [];

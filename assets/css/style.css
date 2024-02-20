@@ -84,12 +84,9 @@ footer {
     padding: 1rem;
 }
 
-/* Containers */
+/* Main page */
 
-.page {
-    display: grid;
-    grid-template-columns: [left] 1fr [middle] 2fr [right] 1fr;
-}
+
 
 .main-container {
     padding: 1rem;
@@ -114,24 +111,35 @@ footer {
 
 .inner-log {
     overflow: auto;
-    height: 50vh;
+    height: 5rem;
     padding: 1rem;
     border-bottom: solid;
     border-width: 0.1rem;
     border-color: black;
 }
 
-.tally-conatiner {
+.log-extra {
+    display: grid;
+    grid-template-columns: [left] 1fr [right] 1fr;
+    padding: 4px;
+}
+
+.log-extra > h2 {
+    margin: 0;
+}
+
+.log-extra > p {
+    margin: 0;
+}
+
+.tally-container {
     padding: 1rem;
 }
 
 .log-list {
     list-style-type: none;
     padding: 0;
-}
-
-.log-list > li {
-    margin-bottom: 0.5rem;
+    margin: 0;
 }
 
 .centre {
@@ -188,7 +196,30 @@ footer {
     cursor: help;
 }
 
+.desktop-title {
+    display: none;
+}
+
+h2 {
+    text-align: center;
+}
+
 /* Flash Cards */
+
+.sub-tally-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sub-tally-container:first-of-type {
+    margin-bottom: 1rem;
+}
+
+.sub-tally-container > p {
+    margin: 0;
+    text-align: center;
+}
 
 .card-container {
     width: full;
@@ -251,5 +282,68 @@ footer {
 
     .toggle-off {
         display: none;
+    }
+
+    .tri-page {
+        display: grid;
+        grid-template-columns: [left] 1fr [middle] 2fr [right] 1fr;
+    }
+
+    .split-page {
+        display: grid;
+        grid-template-columns: [left] 2fr [right] 1fr;
+    }
+
+    .sub-tally-container {
+        display: block;
+        flex-direction: column;
+    }
+    
+    .sub-tally-container:first-of-type {
+        margin-bottom: 0rem;
+    }
+    
+    .sub-tally-container > p {
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .desktop-title {
+        display: inline;
+    }
+    
+    .mobile-title {
+        display: none;
+    }
+
+    h2 {
+        text-align: left;
+    }
+
+    .inner-log {
+        overflow: auto;
+        height: 50vh;
+        padding: 1rem;
+        border-bottom: solid;
+        border-width: 0.1rem;
+        border-color: black;
+    }
+
+    .log-list > li {
+        margin-bottom: 0.5rem;
+    }
+
+    .log-extra {
+        display: block;
+        padding: 10px;
+    }
+    
+    .log-extra > h2 {
+        margin: 0;
+    }
+    
+    .log-extra > p {
+        text-align: left;
+        margin-top: 10px;
     }
 }

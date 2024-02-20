@@ -28,19 +28,23 @@
             </div>
         </div>
     </header>
-    <div class="page">
+    <div class="tri-page">
         <section class="log-container">
-            <h2>Flash Card Tally</h2>
-            <div class="tally-conatiner">
-                <p><span id="cards-completed">0</span> completed out of <span id="cards-total"></span></p>
-                <p><span id="cards-right">0</span> marked as correct</p>
-                <p><span id="cards-unknown">0</span> marked as unknown</p>
-                <p><span id="cards-incorrect">0</span> marked as incorrect</p>
-                <p><span id="game-percentage"></span> correct so far</p>
+            <h2><span class="desktop-title">Flash Card Tally</span><span class="mobile-title">JavaScript Flash Cards</span></h2>
+            <div class="tally-container">
+                <div class="sub-tally-container">
+                    <p><span id="cards-completed">0</span> completed out of <span id="cards-total"></span></p>
+                    <p><span id="game-percentage"></span> correct so far</p>
+                </div>
+                <div class="sub-tally-container">
+                    <p><span id="cards-right">0</span> marked as correct</p>
+                    <p><span id="cards-unknown">0</span> marked as unknown</p>
+                    <p><span id="cards-incorrect">0</span> marked as incorrect</p>
+                </div>
             </div>
         </section>
         <section class="main-container">
-            <h2>JavaScript Flash Cards</h2>
+            <h2 class="desktop-title">JavaScript Flash Cards</h2>
             <div class="card-container">
                 <div class="card">
                     <div id="card-info">
@@ -56,7 +60,6 @@
                     <button id="incorrect-btn" onclick="updateScore(event)">Incorrect</button>
                 </div>
             </div>
-
         </section>
         <nav id="nav">
             <div class="toggle-off" onclick="collapseMobile()">
@@ -105,6 +108,8 @@
     <script src="assets/js/script.js"></script>
     <script src="assets/js/flash-card-script.js"></script>
 
+    <!-- Link to Font Awesome -->
+    <script src="https://kit.fontawesome.com/ab3127d928.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

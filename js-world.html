@@ -28,21 +28,26 @@
             </div>
         </div>
     </header>
-    <div class="page">
+    <div class="tri-page">
         <section class="log-container">
             <h2>JavaScript Events Log</h2>
             <div class="inner-log">
                 <!-- List below to be filled with JavaScript logs added as functions executed -->
                 <ul id="javascript-log" class="log-list"></ul>
             </div>
-            <h2>Mouse location</h2>
-            <p id="mouse-location" class="centre">Mouse has not yet entered the screen</p>
-            <h2>Keys pressed</h2>
-            <p id="keys-pressed" class="centre">No keys pressed yet</p>
+            <div class="log-extra">
+                <h2>Mouse location</h2>
+                <p id="mouse-location" class="centre">Mouse has not yet entered the screen</p>
+            </div>
+            <div class="log-extra">
+                <h2>Keys pressed</h2>
+                <p id="keys-pressed" class="centre">No keys pressed yet</p>
+            </div>
         </section>
         <section class="main-container">
+            <h2>JavaScript World</h2>
             <section>
-                <h2>Events</h2>
+                <h3>Events</h3>
                 <p>JavaScript event listeners listen out for changes occuring within the page triggering functionality when these events occur.</p>
                 <p>Functionality could include http requests or alterations to the DOM.</p>
                 <p>There are many different types of event that JavaScript can listen out for, with a number of these utilised in this page.</p>
@@ -50,12 +55,12 @@
                 <p>These include load events, mouse events, <span id="click-here" onclick="clickEvent(event)" class="hiddenFunction">click events</span> and keyboard events. What can you make happen?</p>
             </section>
             <section>
-                <h2>In-built objects</h2>
+                <h3>In-built objects</h3>
                 <p>JavaScript comes with a number of inbuilt objects, such as the DateTime object.</p>
                 <p>The current date and time are displayed in the header with the time updating every second. Mouse over to find out more.</p>
             </section>
             <section>
-                <h2>Outside connection</h2>
+                <h3>Outside connection</h3>
                 <p>JavaScript can be used to connect to other servers</p>
                 <button>See moon info</button>
                 <div id="moon-phase-container" onmouseenter="mouseEnter(event)" onmouseleave="mouseLeave(event)">
