@@ -13,11 +13,11 @@ const flashCards = [
     },
     {
         front: "What is a try - catch block and how can it be used?",
-        back: "Answer needed!"
+        back: "try...catch statements are used when you have a piece of code that may throw an error:\n\ntry {\n<code you want to execute>\n} catch (<where you catch the error or exceptionVar. This can be ommitted if unneeded>){\n<code to run if an error occurs>\n} finally {\n<any further code to be run as part of this construct. This finally bit can be left out>\n}"
     },
     {
-        front: "Explain Synchronis and Asychronis in regard to JavaScript",
-        back: "Answer needed!"
+        front: "Explain Synchronous and Asynchronous in regards to JavaScript",
+        back: "JavaScript is a single-threaded language and from a simple point of view is synchronous with one line of code happening at a time.\nAs soon as a line has been run (and only when it has been run) JavaScript moves on to the next line.\n\nHowever, you can create asychronous functions which remove a chunk of code out of the flow while waiting for something to occur (API call, set timeout ...). Once the awaited thing has happened the set chunk of code is then run."
     },
     {
         front: "What is optional chaining?",
@@ -46,7 +46,11 @@ const flashCards = [
     {
         front: "filter()",
         back: "Answer needed!"
-    }
+    },
+    {
+        front: "What is conditional changing?",
+        back: "Answer needed!"
+    },
 ];
 
 let cardsSeen = [];

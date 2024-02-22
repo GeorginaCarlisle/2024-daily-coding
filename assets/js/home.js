@@ -1,6 +1,6 @@
 const missedDays = {
     January: 5,
-    February: 4,
+    February: 5,
     March: 0,
 }
 

@@ -138,3 +138,7 @@ Key focus: JavaScript tidy up
 19 - Re-organise JavaScript files and html pages.
 
 20 - Add basic responsive styling across site.
+
+21 - Missed.
+
+22 - Add flash card answers about asynchoronous and synchronous, and try..catch statements.
