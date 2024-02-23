@@ -24,8 +24,8 @@ const flashCards = [
         back: "Answer needed!"
     },
     {
-        front: "Arrow functions",
-        back: "Answer needed!"
+        front: "How are Arrow functions different to regular functions and as a result how are they best used?",
+        back: "Arrow functions provide a way to write simple functions in a much cleaner, easier to read way.\nIn particular, functions that require no arguments or that return the result of some simple logic.\n\nHowever, they do not come with some of the behaviours associated with normal functions (hoisting, argument object, normal 'this' behaviour).\nWhere these are required a normal function is needed.\n\nLexical 'this' binding found with arrow functions is another reason for their use."
     },
     {
         front: "Inline If with Logical && Operator",
@@ -51,6 +51,10 @@ const flashCards = [
         front: "What is conditional changing?",
         back: "Answer needed!"
     },
+    {
+        front: "What does the 'this' key word reference when used by normal functions and arrow functions?",
+        back: "The 'this' keyword is used within a function to refer to the context of that function.\n\nFor normal functions the value of 'this' is determined dynamically based on how the function is called and may refer to a parent object, for example.\nBecause it is dynamically determined sometimes unexpected results can occur with its use.\n\nArrow functions do not set 'this' and so when the 'this' keyword is called it will refer to whatever it was last set as before the function was called.\nThis is known as lexical binding."
+    }
 ];
 
 let cardsSeen = [];

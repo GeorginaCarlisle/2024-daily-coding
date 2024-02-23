@@ -142,3 +142,5 @@ Key focus: JavaScript tidy up
 21 - Missed.
 
 22 - Add flash card answers about asynchoronous and synchronous, and try..catch statements.
+
+23 - Add flash card answers about arrow functions and the 'this' keyword.
