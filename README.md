@@ -144,3 +144,5 @@ Key focus: JavaScript tidy up
 22 - Add flash card answers about asynchoronous and synchronous, and try..catch statements.
 
 23 - Add flash card answers about arrow functions and the 'this' keyword.
+
+24 - Add flash card answer about renaming during destructuring.

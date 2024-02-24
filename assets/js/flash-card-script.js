@@ -28,16 +28,12 @@ const flashCards = [
         back: "Arrow functions provide a way to write simple functions in a much cleaner, easier to read way.\nIn particular, functions that require no arguments or that return the result of some simple logic.\n\nHowever, they do not come with some of the behaviours associated with normal functions (hoisting, argument object, normal 'this' behaviour).\nWhere these are required a normal function is needed.\n\nLexical 'this' binding found with arrow functions is another reason for their use."
     },
     {
-        front: "Inline If with Logical && Operator",
-        back: "Answer needed!"
+        front: "How can destructuring be used to rename?",
+        back: "When destructuring items out of list, this automatically involves giving those items a new variable name.\n\nWhen destructing values from an object though we specifically call them using their key name which becomes the variable name.\nHowever, it is possible to specify a different name for the value associated with a given key:\n\nconst person = { firstname: John, secondname:Smith };\nconst { secondname: surname } = person;"
     },
     {
-        front: "Destructuring rules",
+        front: "How can default values be added during destructuring?",
         back: "Answer needed!"
-    },
-    {
-        front: "How can destructuring be used to rename",
-        back: "Answer neeeded!"
     },
     {
         front: "reduce()",
